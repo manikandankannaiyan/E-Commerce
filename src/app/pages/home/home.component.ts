@@ -8,16 +8,24 @@ declare var $:any;
   styleUrls: ['./home.component.scss']
 })
 export class HomeComponent implements OnInit {
+
+  noWrapSlides = false;
+  showIndicator = true;
   
- apidata:any;
+  apidata:any;
+  
+  max: number = 5;
+
   constructor( private service:FakeApiService) { }
 
   ngOnInit(): void {
+      
     this.service.getdata().subscribe((data:any)=>{
-      this.apidata=data
+      this.apidata=data;    
       console.log(data);
+        
     })
-
+    
 
     $('.slider_for').slick({
       slidesToShow: 1,

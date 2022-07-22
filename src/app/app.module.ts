@@ -13,6 +13,9 @@ import { NavbarComponent } from './components/navbar/navbar.component';
 import { HttpClientModule } from '@angular/common/http';
 import { SlickCarouselModule } from 'ngx-slick-carousel';
 import {MatCardModule} from '@angular/material/card';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+import { RatingModule, RatingConfig } from 'ngx-bootstrap/rating';
+import { CarouselModule } from 'ngx-bootstrap/carousel';
 
 @NgModule({
   declarations: [
@@ -30,9 +33,13 @@ import {MatCardModule} from '@angular/material/card';
     BrowserAnimationsModule,
     HttpClientModule,
     SlickCarouselModule,
-    MatCardModule
+    MatCardModule,
+    FormsModule,
+    ReactiveFormsModule,
+    RatingModule,
+    CarouselModule
   ],
-  providers: [],
+  providers: [RatingConfig],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

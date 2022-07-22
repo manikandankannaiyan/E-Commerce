@@ -27,6 +27,30 @@ mat-card{
   display: block;
   margin-left: auto;
   margin-right: auto;
-  width: 50%;
-  height: 50%;
+  width: 30%;
+  height: 30%;
+  background-color: #5463FF;
+}
+::ng-deep .bs-rating-star{
+    font-size: 1.5rem;
+    font-weight: lighter;
+}
+::ng-deep .bs-rating-star.active{
+    color: yellow;
+    font-size: 1.5rem;
+}
+::ng-deep .carousel-control-next-icon,::ng-deep.carousel-control-prev-icon{
+    background-color: #5463FF;
+    color: white;
+    font-weight: lighter;
+}
+.title_carousel{
+    background-color: #5463FF;
+    color: white;
+    height: 3rem;
+    padding: 0.5rem;
+    position: relative;
+    right: 10rem;
+    top:2rem;
+    z-index: 1;
 }
