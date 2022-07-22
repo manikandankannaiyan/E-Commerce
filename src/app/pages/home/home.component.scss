@@ -5,8 +5,28 @@
 }
 
 .row div:nth-child(1){
-    height: 700px;
-}
-.row div:nth-child(1){
     font-weight: bold;
+}
+::ng-deep .slick-slider{
+    display: flex;
+    align-items: center;
+}
+::ng-deep .slick-dots{
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+}
+.cards{
+    margin-top: 15rem;
+}
+mat-card{
+    width: 15rem;
+    height: 15rem;
+}
+.center{
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+  width: 50%;
+  height: 50%;
 }

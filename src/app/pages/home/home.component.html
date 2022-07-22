@@ -5,7 +5,46 @@
             <h5>Lorem ipsum dolor sit amet, consectetur adipiscing elit. In eget gravida leo, nec iaculis diam. Nam bibendum mi sed sem finibus ullamcorper.</h5>
             <button type="button" class="btn bg-light w-50">Shop Now</button>
         </div>
-        <div class="col-sm-4"></div>
-        <div class="col-sm-4"></div>
+        <div class="col-sm-4">
+           <div class="d-flex flex-column justify-content-sm-center">
+            <ngx-slick-carousel class="carousel" id="slider" [config]="slideConfig">
+                <div ngxSlickItem *ngFor="let item of apidata" class="slide">
+                <img [src]="item.image" alt="" width="50%">
+                </div>
+            </ngx-slick-carousel>
+           </div>
+        </div>
+        <div class="col-sm-4">
+            <div class="cards">
+                <!-- <ngx-slick-carousel class="slider_for carousel" >
+                    <div ngxSlickItem *ngFor="let item of apidata" class="slide">
+                    <img [src]="item.image" alt="" width="50%">
+                    </div>
+                </ngx-slick-carousel>
+                <ngx-slick-carousel class="slider_nav carousel" >
+                    <div ngxSlickItem *ngFor="let item of apidata" class="slide">
+                    <img [src]="item.image" alt="" width="50%">
+                    </div>
+                </ngx-slick-carousel> -->
+            </div>
+        </div>
+    </div>
+</div>
+<div class="product">
+    <div class="row">
+        <div class="col-sm-6">sd</div>
+        <div class="col-sm-6">f</div>
+    </div>
+    <div class="row" >
+        <div class="col-xs-6 col-sm-4 col-lg-3" *ngFor="let item of apidata">
+            <mat-card class="m-5">
+                <img [src]="item.image" class="center" alt="" width="50%">
+                <div class="d-flex justify-content-between mt-4">
+                    <h3><b>{{item.category}}</b></h3>
+                    <h3><b>{{item.price}} Rs.</b></h3>
+                </div>
+                <h3></h3>
+            </mat-card>
+        </div>
     </div>
 </div>
