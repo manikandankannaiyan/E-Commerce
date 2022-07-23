@@ -15,6 +15,8 @@ import { SlickCarouselModule } from 'ngx-slick-carousel';
 import { MatCardModule } from '@angular/material/card';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { MatBadgeModule } from '@angular/material/badge';
+import { RatingModule, RatingConfig } from 'ngx-bootstrap/rating';
+import { CarouselModule } from 'ngx-bootstrap/carousel';
 
 @NgModule({
   declarations: [
@@ -36,8 +38,10 @@ import { MatBadgeModule } from '@angular/material/badge';
     FormsModule,
     ReactiveFormsModule,
     MatBadgeModule,
+    RatingModule,
+    CarouselModule
   ],
-  providers: [],
+  providers: [RatingConfig],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
