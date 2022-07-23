@@ -5,9 +5,9 @@ import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { HomeComponent } from './pages/home/home.component';
-import { ShopComponent } from './pages/shop/shop.component';
-import { ProductDetailsComponent } from './pages/product-details/product-details.component';
-import { WishlistComponent } from './pages/wishlist/wishlist.component';
+import { ShopComponent } from './pages/home/pages/shop/shop.component';
+import { ProductDetailsComponent } from './pages/home/pages/product-details/product-details.component';
+import { WishlistComponent } from './pages/home/pages/wishlist/wishlist.component';
 import { CheckoutComponent } from './pages/checkout/checkout.component';
 import { NavbarComponent } from './components/navbar/navbar.component';
 import { HttpClientModule } from '@angular/common/http';
@@ -17,6 +17,11 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { MatBadgeModule } from '@angular/material/badge';
 import { RatingModule, RatingConfig } from 'ngx-bootstrap/rating';
 import { CarouselModule } from 'ngx-bootstrap/carousel';
+import { MatRippleModule } from '@angular/material/core';
+import { AboutComponent } from './pages/about/about.component';
+import { ContactComponent } from './pages/contact/contact.component';
+import { CartComponent } from './pages/home/pages/cart/cart.component';
+import { ProductShopComponent } from './pages/product-shop/product-shop.component';
 
 @NgModule({
   declarations: [
@@ -26,7 +31,11 @@ import { CarouselModule } from 'ngx-bootstrap/carousel';
     ProductDetailsComponent,
     WishlistComponent,
     CheckoutComponent,
-    NavbarComponent
+    NavbarComponent,
+    AboutComponent,
+    ContactComponent,
+    CartComponent,
+    ProductShopComponent
   ],
   imports: [
     BrowserModule,
@@ -39,7 +48,8 @@ import { CarouselModule } from 'ngx-bootstrap/carousel';
     ReactiveFormsModule,
     MatBadgeModule,
     RatingModule,
-    CarouselModule
+    CarouselModule,
+    MatRippleModule
   ],
   providers: [RatingConfig],
   bootstrap: [AppComponent]

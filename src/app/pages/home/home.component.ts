@@ -11,6 +11,8 @@ export class HomeComponent implements OnInit {
 
   noWrapSlides = false;
   showIndicator = true;
+
+  centered = false;
   
   apidata:any;
   
@@ -49,7 +51,6 @@ export class HomeComponent implements OnInit {
     slidesToShow: 2, 
     slidesToScroll: 1,
     arrows: false,
-    // dots:true,
     vertical:true,
     autoplay:true,
     verticalSwiping:true
