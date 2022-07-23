@@ -18,7 +18,7 @@ export class HomeComponent implements OnInit {
 
   constructor( private service:FakeApiService) { }
 
-  ngOnInit(): void {
+  ngOnInit(): void {    
       
     this.service.getdata().subscribe((data:any)=>{
       this.apidata=data;    

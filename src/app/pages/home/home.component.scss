@@ -10,6 +10,20 @@
 ::ng-deep .slick-slider{
     display: flex;
     align-items: center;
+    height: 700px;
+}
+::ng-deep .slick-vertical .slick-slide{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 15rem;
+}
+::ng-deep .slick-slide img{
+    width: 10rem;
+    height: 10rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
 }
 ::ng-deep .slick-dots{
     display: flex;
@@ -50,7 +64,60 @@ mat-card{
     height: 3rem;
     padding: 0.5rem;
     position: relative;
-    right: 10rem;
-    top:2rem;
+    right: 15rem;
+    top:1rem;
     z-index: 1;
+}
+.slide1{
+    width: 25rem;
+    height: 700px;
+}
+.slide3{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 20rem;
+    height: 15rem;
+}
+img.center3{
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+    width: 15rem;
+    height: 15rem;
+    background-color: #5463FF;
+  }
+.single_product{
+    height: 588px;
+    background: linear-gradient(#7D89FF, #AB40FF);
+    color: white;
+}
+.slide4{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 588px;
+}
+img.center4{
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+    width: 15rem;
+    height: 15rem;
+    background-color: #5463FF;
+  }
+::ng-deep .carousel-indicators{
+    display: none;
+  }
+::ng-deep .carousel-control-next, ::ng-deep .carousel-control-prev{
+    margin: -3rem;
+    bottom: 5rem;
+}
+.footer{
+    background-color: #393E46;
+    color: white;
+}
+a{
+    text-decoration: none;
+    color: white;
 }
