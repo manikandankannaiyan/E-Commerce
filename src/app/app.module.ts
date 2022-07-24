@@ -21,6 +21,7 @@ import { MatRippleModule } from '@angular/material/core';
 import { AboutComponent } from './pages/about/about.component';
 import { ContactComponent } from './pages/contact/contact.component';
 import { CartComponent } from './pages/home/pages/cart/cart.component';
+import { FilterPipe } from './shared/filter.pipe';
 import { ProductShopComponent } from './pages/product-shop/product-shop.component';
 
 @NgModule({
@@ -35,7 +36,8 @@ import { ProductShopComponent } from './pages/product-shop/product-shop.componen
     AboutComponent,
     ContactComponent,
     CartComponent,
-    ProductShopComponent
+    ProductShopComponent,
+    FilterPipe
   ],
   imports: [
     BrowserModule,

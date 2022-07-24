@@ -11,18 +11,18 @@ import { WishlistComponent } from './pages/home/pages/wishlist/wishlist.componen
 import { ProductShopComponent } from './pages/product-shop/product-shop.component';
 
 const routes: Routes = [
-  {path:'home',component:HomeComponent,children:[
+  {path:'home',component:HomeComponent},
     {path:'shop',component:ShopComponent},
     {path:'wishlist',component:WishlistComponent},
     {path:'checkout',component:CheckoutComponent},
     {path:'cart',component:CartComponent},
     {path:'product-details',component:ProductDetailsComponent},
-  ]},
+  
   {path:'about',component:AboutComponent},
   {path:'contact',component:ContactComponent},
   {path:'pro-shop',component:ProductShopComponent},
   
-  {path:'*',redirectTo:'home/shop',pathMatch:'full'}
+  {path:'**',redirectTo:'/home',pathMatch:'full'}
 ];
 
 @NgModule({

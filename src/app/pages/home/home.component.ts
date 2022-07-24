@@ -18,12 +18,17 @@ export class HomeComponent implements OnInit {
   
   max: number = 5;
 
+  searchKey:string ="";
+
+  filterCategory : any
+
   constructor( private service:FakeApiService) { }
 
   ngOnInit(): void {    
       
     this.service.getdata().subscribe((data:any)=>{
-      this.apidata=data;    
+      this.apidata = data;    
+      this.filterCategory = data;
       console.log(data);
         
     })
@@ -56,7 +61,13 @@ export class HomeComponent implements OnInit {
     verticalSwiping:true
   };
 
-
-
+  filter(category:string){
+    this.filterCategory = this.apidata
+    .filter((a:any)=>{
+      if(a.category == category || category==''){
+        return a;
+      }
+    })
+  }
   
 }

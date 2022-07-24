@@ -70,16 +70,17 @@
             <h4 style="color: #5463FF;">CHOOSE FROM THE BEST PRODUCTS</h4>
             <h2><b>Our Best Seller Product</b></h2>
             <div class="d-flex next_page">
-                <a href="" routerLinkActive="active">Men's</a>
-                <a href="" routerLinkActive="active">Women's</a>
-                <a href="" routerLinkActive="active">Jewelery</a>
-                <a href="" routerLinkActive="active">Electronics</a>
+                <a routerLinkActive="active" (click)="filter('')">All Category</a>
+                <a routerLinkActive="active" (click)="filter('mens')">Men's</a>
+                <a routerLinkActive="active" (click)="filter('woman')">Women's</a>
+                <a routerLinkActive="active" (click)="filter('jewelery')">Jewelery</a>
+                <a routerLinkActive="active" (click)="filter('electronics')">Electronics</a>
             </div>
         </div>
     </div>
 
     <div class="row" >
-        <div class="col-xs-6 col-sm-4 col-lg-3 " *ngFor="let item of apidata">
+        <div class="col-xs-6 col-sm-4 col-lg-3 " *ngFor="let item of filterCategory | filter:searchKey:'title'">
             <mat-card matRipple [matRippleCentered]="centered" class="m-5" routerLink="shop">
                 <img [src]="item.image" class="center" alt="" width="50%">
                 <div class="d-flex justify-content-between mt-4">
