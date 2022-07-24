@@ -23,6 +23,10 @@ import { ContactComponent } from './pages/contact/contact.component';
 import { CartComponent } from './pages/home/pages/cart/cart.component';
 import { FilterPipe } from './shared/filter.pipe';
 import { ProductShopComponent } from './pages/product-shop/product-shop.component';
+import {MatSliderModule} from '@angular/material/slider';
+import { FooterComponent } from './components/footer/footer.component';
+import {MatTabsModule} from '@angular/material/tabs';
+import {MatButtonModule} from '@angular/material/button';
 
 @NgModule({
   declarations: [
@@ -37,7 +41,8 @@ import { ProductShopComponent } from './pages/product-shop/product-shop.componen
     ContactComponent,
     CartComponent,
     ProductShopComponent,
-    FilterPipe
+    FilterPipe,
+    FooterComponent
   ],
   imports: [
     BrowserModule,
@@ -51,7 +56,10 @@ import { ProductShopComponent } from './pages/product-shop/product-shop.componen
     MatBadgeModule,
     RatingModule,
     CarouselModule,
-    MatRippleModule
+    MatRippleModule,
+    MatSliderModule,
+    MatTabsModule,
+    MatButtonModule
   ],
   providers: [RatingConfig],
   bootstrap: [AppComponent]

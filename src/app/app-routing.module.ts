@@ -1,5 +1,6 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
+import { FooterComponent } from './components/footer/footer.component';
 import { AboutComponent } from './pages/about/about.component';
 import { CheckoutComponent } from './pages/checkout/checkout.component';
 import { ContactComponent } from './pages/contact/contact.component';
@@ -12,16 +13,15 @@ import { ProductShopComponent } from './pages/product-shop/product-shop.componen
 
 const routes: Routes = [
   {path:'home',component:HomeComponent},
-    {path:'shop',component:ShopComponent},
-    {path:'wishlist',component:WishlistComponent},
-    {path:'checkout',component:CheckoutComponent},
-    {path:'cart',component:CartComponent},
-    {path:'product-details',component:ProductDetailsComponent},
-  
+  {path:'shop',component:ShopComponent},
+  {path:'wishlist',component:WishlistComponent},
+  {path:'checkout',component:CheckoutComponent},
+  {path:'cart',component:CartComponent},
+  {path:'product-details',component:ProductDetailsComponent},
   {path:'about',component:AboutComponent},
   {path:'contact',component:ContactComponent},
   {path:'pro-shop',component:ProductShopComponent},
-  
+  {path:'footer',component:FooterComponent},
   {path:'**',redirectTo:'/home',pathMatch:'full'}
 ];
 

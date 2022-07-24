@@ -9,9 +9,6 @@ declare var $:any;
 })
 export class HomeComponent implements OnInit {
 
-  noWrapSlides = false;
-  showIndicator = true;
-
   centered = false;
   
   apidata:any;
@@ -29,30 +26,11 @@ export class HomeComponent implements OnInit {
     this.service.getdata().subscribe((data:any)=>{
       this.apidata = data;    
       this.filterCategory = data;
-      console.log(data);
-        
+      console.log(data);    
     })
-    
-
-    $('.slider_for').slick({
-      slidesToShow: 1,
-      slidesToScroll: 1,
-      arrows: false,
-      fade: true,
-      asNavFor: '.slider_nav'
-    });
-    $('.slider_nav').slick({
-      slidesToShow: 3,
-      slidesToScroll: 1,
-      asNavFor: '.slider_for',
-      dots: true,
-      centerMode: true,
-      focusOnSelect: true
-    });
-        
   }
 
-  slideConfig = { 
+  slideConfig1 = { 
     slidesToShow: 2, 
     slidesToScroll: 1,
     arrows: false,
@@ -60,6 +38,13 @@ export class HomeComponent implements OnInit {
     autoplay:true,
     verticalSwiping:true
   };
+  slideConfig2 = { 
+    slidesToShow: 2, 
+    slidesToScroll: 1,
+    arrows: false,
+    autoplay:true,
+  };
+
 
   filter(category:string){
     this.filterCategory = this.apidata
@@ -69,5 +54,13 @@ export class HomeComponent implements OnInit {
       }
     })
   }
+
+  filter_title=[
+    {name:'All Category',filter:''},
+    {name:"Men's",filter:"men's clothing"},
+    {name:"Women's",filter:"women's clothing"},
+    {name:'Jewelery',filter:'jewelery'},
+    {name:'Electronics',filter:'electronics'}
+  ]
   
 }

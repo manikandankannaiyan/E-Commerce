@@ -1,0 +1,35 @@
+.container-fluid{
+    height: 320px;
+    background: linear-gradient(#7D89FF, #AB40FF);
+    color: white;
+}
+.center{
+    width: 5rem;
+    height: 5rem;
+    border-radius: 50%;
+    border: 2px solid white;
+}
+::ng-deep .carousel-control-next{
+    margin: -3rem;
+    bottom:2.5rem
+}
+::ng-deep.carousel-control-prev{
+    margin: -3rem;
+    bottom:2.5rem
+}
+select{
+    border: none;
+    outline: none;
+}
+mat-card{
+    width: 14rem;
+    height: 14rem;
+}
+::ng-deep .bs-rating-star{
+    font-size: 1.5rem;
+    font-weight: lighter;
+}
+::ng-deep .bs-rating-star.active{
+    color: yellow;
+    font-size: 1.5rem;
+}

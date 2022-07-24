@@ -1,1 +1,120 @@
-<p>shop works!</p>
+<div class="container-fluid">
+    <div class="row p-5  align-items-center justify-content-center">
+        <div class="col-md-6 pt-md-5">
+            <h4 style="word-spacing: 1rem;">Home / <b>Shop</b></h4>
+            <h1 class="pt-4"><b>Shop</b></h1>
+        </div>
+        <div class="col-md-6 pt-md-5">
+            <carousel class="mt-5"  [showIndicators]="false" [itemsPerSlide]="4" [noWrap]="false" [singleSlideOffset]="true" [pauseOnFocus]="true">
+                <slide  *ngFor="let slide of image; let index=index">
+                    <div class="d-flex flex-column align-items-center">
+                        <img [src]="slide.img"  class="center" alt="image slide">
+                        <p class="mt-3" (click)="filter(slide.filter)">{{slide.name}}</p>
+                    </div>
+                </slide>
+            </carousel>
+        </div>
+    </div>
+</div>
+
+<div class="product">
+    <div class="row p-5">
+        <div class="col-3">
+            <h2><b>T-Shirt</b></h2>
+            <h4>filter <img src="./assets/icons/filter.png" alt=""></h4>
+            <label class="d-flex align-items-center">Categories<select class="form-control"></select></label>
+            <div>
+                <button style="color: white;" class="btn btn-primary">Men</button>
+                <button style="color: black;" class="ml-2 btn btn-outline-secondary">Woman</button>
+                <button style="color: black;" class="ml-2 btn btn-outline-secondary">Children</button>
+            </div>
+            <hr>
+            <label class="d-flex align-items-center pt-2">Price<select class="form-control"></select></label>
+            <mat-slider [max]="s_max" [min]="s_min" [ngModel]="" style="width: 100%;"></mat-slider>
+            <div class="d-flex align-items-center justify-content-between">
+                <div>{{s_min}}</div><div>{{s_max}}</div>
+            </div>
+            <hr>
+            <label class="d-flex align-items-center pt-2">Color<select class="form-control"></select></label>
+            <div>
+                <input class="mr-1" type="radio">
+                <input class="mr-1" type="radio">
+                <input class="mr-1" type="radio">
+                <input class="mr-1" type="radio">
+            </div>
+            <hr>
+            <label class="d-flex align-items-center pt-2">Size<select class="form-control"></select></label>
+            <div class="d-flex">
+                <div class="mr-3">
+                    <p>S</p>
+                    <input type="radio">
+                </div>
+                <div class="mr-3">
+                    <p>M</p>
+                    <input type="radio">
+                </div>
+                <div class="mr-3">
+                    <p>L</p>
+                    <input type="radio">
+                </div>
+                <div class="mr-3">
+                    <p>XL</p>
+                    <input type="radio">
+                </div>
+                <div class="mr-3">
+                    <p>XXL</p>
+                    <input type="radio">
+                </div>
+            </div>
+            <hr>
+        </div>
+        <div class="col-9">
+            <div class="row" >
+                <div class="col-xs-6 col-sm-6 col-lg-4 " *ngFor="let item of filterCategory | filter:searchKey:'title'|slice:0:12">
+                    <mat-card matRipple [matRippleCentered]="centered" class="m-5" routerLink="shop">
+                        <img [src]="item.image" class="center" alt="" width="50%">
+                        <div class="d-flex justify-content-between mt-4">
+                            <h3><b>{{item.category}}</b></h3>
+                            <h3><b>{{item.price}} Rs.</b></h3>
+                        </div>
+                        <div class="d-flex">
+                            <rating class="pt-1" [ngModel]="item.rating.rate" 
+                                [max]="5" 
+                                [readonly]="true" 
+                                >
+                            </rating>
+                            <h3>({{item.rating.count}})</h3>
+                        </div>
+                    </mat-card>
+                </div>
+            </div>
+            <div class="d-flex align-items-center justify-content-center">
+                <button class="btn" style="background: linear-gradient(#7D89FF, #AB40FF); color: white;">Load More</button>
+            </div>
+        </div>
+    </div>
+</div>
+<div class="d-flex align-items-center justify-content-center"><h2><b>Recommend Product</b></h2></div>
+<div>
+    <ngx-slick-carousel class="carousel" id="slider" [config]="slideConfig">
+        <div ngxSlickItem *ngFor="let item of apidata" class="slide">
+            <div class="d-flex align-items-center justify-content-center">
+                <mat-card  matRipple [matRippleCentered]="centered" class="m-5" >
+                    <img [src]="item.image" class="center" alt="" width="50%">
+                    <div class="d-flex justify-content-between mt-4">
+                        <h3><b>{{item.category}}</b></h3>
+                        <h3><b>{{item.price}} Rs.</b></h3>
+                    </div>
+                    <div class="d-flex">
+                        <rating class="pt-1" [ngModel]="item.rating.rate" 
+                            [max]="5" 
+                            [readonly]="true" 
+                            >
+                        </rating>
+                        <h3>({{item.rating.count}})</h3>
+                    </div>
+                </mat-card>
+            </div>
+        </div>
+    </ngx-slick-carousel>
+</div>

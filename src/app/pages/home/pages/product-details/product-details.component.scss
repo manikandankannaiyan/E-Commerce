@@ -1,0 +1,12 @@
+::ng-deep .bs-rating-star{
+    font-size: 1.5rem;
+    font-weight: lighter;
+}
+::ng-deep .bs-rating-star.active{
+    color: yellow;
+    font-size: 1.5rem;
+}
+mat-card{
+    width: 14rem;
+    height: 14rem;
+}

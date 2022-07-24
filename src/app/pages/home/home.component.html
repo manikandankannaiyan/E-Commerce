@@ -7,25 +7,22 @@
         </div>
         <div class="col-md-4 d-flex flex-column justify-content-md-center">
            <div class="slide1 ">
-            <ngx-slick-carousel class="carousel" id="slider" [config]="slideConfig">
+            <ngx-slick-carousel class="carousel" id="slider" [config]="slideConfig1">
                 <div ngxSlickItem *ngFor="let item of apidata" class="slide">
                 <img [src]="item.image" class="center1" alt="" width="50%">
                 </div>
             </ngx-slick-carousel>
            </div>
         </div>
-        <div class="col-sm-4">
-            <div class="cards">
-                <!-- <ngx-slick-carousel class="slider_for carousel" >
-                    <div ngxSlickItem *ngFor="let item of apidata" class="slide">
-                    <img [src]="item.image" alt="" width="50%">
-                    </div>
-                </ngx-slick-carousel>
-                <ngx-slick-carousel class="slider_nav carousel" >
-                    <div ngxSlickItem *ngFor="let item of apidata" class="slide">
-                    <img [src]="item.image" alt="" width="50%">
-                    </div>
-                </ngx-slick-carousel> -->
+        <div class="col-sm-4 d-flex flex justify-content-md-center">
+            <div class="slide2">
+                <carousel [noWrap]="false" [showIndicators]="true">
+                    <slide  *ngFor="let slide of apidata; let index=index">
+                       <div class="d-flex justify-content-center align-items-center flex-column">
+                         <img [src]="slide.image" class="center2" alt="image slide">
+                       </div>
+                    </slide>
+                 </carousel>
             </div>
         </div>
     </div>
@@ -48,9 +45,9 @@
             <h2><b>Categories Style</b></h2>
             <h4>Lorem ipsum dolor sit amet, consectetur adipiscing elit. In eget gravida leo, nec iaculis diam. Nam bibendum mi sed sem finibus ullamcorper.</h4>
         </div>
-        <div class="col-md-6 p-sm-5">
+        <div class="col-md-6 p-sm-5 d-flex justify-content-center align-items-center">
             <div class="slide3">
-                <carousel [noWrap]="noWrapSlides" [showIndicators]="showIndicator">
+                <carousel [noWrap]="false" [showIndicators]="true">
                    <slide  *ngFor="let slide of apidata; let index=index">
                       <div class="d-flex justify-content-center align-items-center flex-column">
                         <img [src]="slide.image" class="center3" alt="image slide">
@@ -69,18 +66,16 @@
         <div class="col-12 d-flex flex-column justify-content-center align-items-center">
             <h4 style="color: #5463FF;">CHOOSE FROM THE BEST PRODUCTS</h4>
             <h2><b>Our Best Seller Product</b></h2>
-            <div class="d-flex next_page">
-                <a routerLinkActive="active" (click)="filter('')">All Category</a>
-                <a routerLinkActive="active" (click)="filter('mens')">Men's</a>
-                <a routerLinkActive="active" (click)="filter('woman')">Women's</a>
-                <a routerLinkActive="active" (click)="filter('jewelery')">Jewelery</a>
-                <a routerLinkActive="active" (click)="filter('electronics')">Electronics</a>
+            <div class="d-flex align-items-center flex-row next_page">
+                <div *ngFor="let item of filter_title">
+                    <a routerLinkActive="active" (click)="filter(item.filter)">{{item.name}}</a>
+                </div>
             </div>
         </div>
     </div>
 
     <div class="row" >
-        <div class="col-xs-6 col-sm-4 col-lg-3 " *ngFor="let item of filterCategory | filter:searchKey:'title'">
+        <div class="col-xs-6 col-sm-4 col-lg-3 " *ngFor="let item of filterCategory | filter:searchKey:'title'|slice:0:8">
             <mat-card matRipple [matRippleCentered]="centered" class="m-5" routerLink="shop">
                 <img [src]="item.image" class="center" alt="" width="50%">
                 <div class="d-flex justify-content-between mt-4">
@@ -89,7 +84,7 @@
                 </div>
                 <div class="d-flex">
                     <rating class="pt-1" [ngModel]="item.rating.rate" 
-                        [max]="max" 
+                        [max]="5" 
                         [readonly]="true" 
                         >
                     </rating>
@@ -103,48 +98,45 @@
 <div class="single_product">
     <div class="row">
         <div class="col-sm-12 slide4" >
-            <carousel [noWrap]="noWrapSlides" [showIndicators]="showIndicator">
+            <carousel [noWrap]="false" [showIndicators]="true">
                 <slide  *ngFor="let slide of apidata; let index=index">
-                    <div class="d-flex">
-                        <img [src]="slide.image"  class="center4" alt="image slide">
-                    </div>
-                    <div>
-                        <h1><b>{{slide.category}}</b></h1>
-                        <div class="d-flex justify-content-between align-items-center">
-                            <div class="gp-1">
-                                <h4><b>color</b></h4>
-                                <div class="d-flex">
-                                    <input type="radio">
-                                    <input type="radio">
-                                    <input type="radio">
-                                </div>     
-                            </div>
-                            <div class="gp-2 d-flex">
-                                <rating class="pt-1" [ngModel]="slide.rating.rate" [max]="max" [readonly]="true"></rating>
-                                <h3>({{slide.rating.count}})</h3>
-                            </div>
+                    <div class="row d-flex justify-content-center align-items-center">
+                        <div style="height: 588px;" class=" col-sm-6 d-flex justify-content-center align-items-center">
+                            <img [src]="slide.image"  class="center4" alt="image slide">
                         </div>
-                        <div class="d-flex justify-content-between align-items-center">
-                            <div class="gp-3">
-                                <h4 class="mt-2"><b>size</b></h4>
-                                <div class="d-flex justify-content-between align-items-center" >
-                                    <span class="badge bg-light rounded-circle mr-1" style="color: black;">S</span>
-                                    <span class="badge bg-light rounded-circle mr-1" style="color: black;">M</span>
-                                    <span class="badge bg-light rounded-circle mr-1" style="color: black;">L</span>
-                                    <span class="badge bg-light rounded-circle " style="color: black;">XL</span>
+                        <div class="col-sm-6 pl-sm-5 d-flex flex-column justify-content-center align-items-start" style="height: 588px;">
+                            <h1><b>{{slide.category}}</b></h1>
+                            <div class="d-flex justify-content-between align-items-center">
+                                <div class="gp-1">
+                                    <h4><b>color</b></h4>
+                                    <div class="d-flex">
+                                        <input type="radio">
+                                        <input type="radio">
+                                        <input type="radio">
+                                    </div>     
+                                </div>
+                                <div class="gp-2 d-flex">
+                                    <rating class="pt-1" [ngModel]="slide.rating.rate" [max]="max" [readonly]="true"></rating>
+                                    <h3>({{slide.rating.count}})</h3>
                                 </div>
                             </div>
-                            <div><b><h3>{{slide.price}} Rs.</h3></b></div>
+                            <div class="d-flex justify-content-between align-items-center">
+                                <div class="gp-3">
+                                    <h4 class="mt-2"><b>size</b></h4>
+                                    <div class="d-flex justify-content-between align-items-center" >
+                                        <span class="badge bg-light rounded-circle mr-1" style="color: black;">S</span>
+                                        <span class="badge bg-light rounded-circle mr-1" style="color: black;">M</span>
+                                        <span class="badge bg-light rounded-circle mr-1" style="color: black;">L</span>
+                                        <span class="badge bg-light rounded-circle " style="color: black;">XL</span>
+                                    </div>
+                                </div>
+                                <div><b><h3>{{slide.price}} Rs.</h3></b></div>
+                            </div>
                         </div>
                     </div>
                 </slide>
              </carousel>
         </div>
-        <!-- <div class="col-sm-6">
-            <div *ngFor="let slide of apidata; let index=index">
-                <h2>{{slide.category}}</h2>
-            </div>
-        </div> -->
     </div>
 </div>
 
@@ -197,52 +189,6 @@
         <div class="col-sm-6">
             <div class="p-5">
                 <img src="./assets/icons/shirt.png" width="100%" alt="">
-            </div>
-        </div>
-    </div>
-</div>
-<div class="footer">
-    <div class="row p-5">
-        <div class="col-sm-5">
-            <div class="d-flex align-items-center">
-                <img src="./assets/icons/Logo.png" alt="">
-                <h3 class="pt-3 pl-2"><b>mangcoding Store</b></h3>
-            </div>
-            <h5>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nam mollis, justo nec porttitor auctor, erat sapien faucibus lectus, vel tempor dolor augue et lectus. </h5>
-            <button type="button" class="btn bg-light w-50" style="color:#AB40FF"><b>Login Now</b></button>
-        </div>
-        <div class="col-sm-7">
-            <div class="row ">
-                <div class="col-md-3 col-sm-4 d-flex flex-column">
-                    <a href=""><h3><b>Home</b></h3></a>
-                    <a href=""><h3>Product</h3></a>
-                    <a href=""><h3>Categories</h3></a>
-                    <a href=""><h3>Shop</h3></a>
-                    <a href=""><h3>Log in</h3></a>
-                </div>
-                <div class="col-md-3 col-sm-4 d-flex flex-column">
-                    <a href=""><h3><b>Shop</b></h3></a>
-                    <a href=""><h3>T-Shirt</h3></a>
-                    <a href=""><h3>Jocket</h3></a>
-                    <a href=""><h3>Shirt</h3></a>
-                    <a href=""><h3>Jens</h3></a>
-                </div>
-                <div class="col-md-3 col-sm-4 d-flex flex-column">
-                    <a href=""><h3><b>Categories</b></h3></a>
-                    <a href=""><h3>Men</h3></a>
-                    <a href=""><h3>Children</h3></a>
-                    <a href=""><h3>Woman</h3></a>
-                </div>
-                <div class="col-md-3 col-sm-4 d-flex flex-column">
-                    <a href=""><h3><b>Contact</b></h3></a>
-                    <a href=""><h3>mangcoding@gmail.com</h3></a>
-                    <div>
-                        <img style="cursor: pointer;" src="./assets/icons/fb.png" alt="">
-                        <img style="cursor: pointer;" src="./assets/icons/twetter.png" alt="">
-                        <img style="cursor: pointer;" src="./assets/icons/linkedin.png" alt="">
-                        <img style="cursor: pointer;" src="./assets/icons/instagram.png" alt="">
-                    </div>
-                </div>
             </div>
         </div>
     </div>
