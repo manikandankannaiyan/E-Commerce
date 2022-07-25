@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { fakeapidata } from 'src/app/model/fake-api-data';
 
 @Component({
   selector: 'app-wishlist',
@@ -7,9 +8,15 @@ import { Component, OnInit } from '@angular/core';
 })
 export class WishlistComponent implements OnInit {
 
-  constructor() { }
+  wishlist:any;
+  constructor(private service:fakeapidata) { }
 
   ngOnInit(): void {
+    this.wishlist = this.service.servewish();    
+  }
+
+  savecartlist(){
+    // this.service.savecart(this.single_data);
   }
 
 }

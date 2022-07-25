@@ -3,7 +3,7 @@
         <div class="col-sm-4 pl-sm-5 d-flex flex-column justify-content-md-center">
             <h2>Get the Latest Dress Models From Us</h2>
             <h5>Lorem ipsum dolor sit amet, consectetur adipiscing elit. In eget gravida leo, nec iaculis diam. Nam bibendum mi sed sem finibus ullamcorper.</h5>
-            <button type="button" class="btn bg-light w-50">Shop Now</button>
+            <button type="button" routerLink="/shop" class="btn bg-light w-50">Shop Now</button>
         </div>
         <div class="col-md-4 d-flex flex-column justify-content-md-center">
            <div class="slide1 ">
@@ -46,7 +46,7 @@
             <h4>Lorem ipsum dolor sit amet, consectetur adipiscing elit. In eget gravida leo, nec iaculis diam. Nam bibendum mi sed sem finibus ullamcorper.</h4>
         </div>
         <div class="col-md-6 p-sm-5 d-flex justify-content-center align-items-center">
-            <div class="slide3">
+            <div class="slide3 mt-3">
                 <carousel [noWrap]="false" [showIndicators]="true">
                    <slide  *ngFor="let slide of apidata; let index=index">
                       <div class="d-flex justify-content-center align-items-center flex-column">
@@ -68,7 +68,7 @@
             <h2><b>Our Best Seller Product</b></h2>
             <div class="d-flex align-items-center flex-row next_page">
                 <div *ngFor="let item of filter_title">
-                    <a routerLinkActive="active" (click)="filter(item.filter)">{{item.name}}</a>
+                    <a class="link" routerLinkActive="active" (click)="filter(item.filter)">{{item.name}}</a>
                 </div>
             </div>
         </div>

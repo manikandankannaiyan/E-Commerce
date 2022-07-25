@@ -136,15 +136,19 @@ img.center4{
     padding-left: 1rem;
     padding-right: 1rem;
     text-decoration: none;
+    cursor: pointer;
 }
 
-.next_page a.hover{
-    color: #3B82F6;
-    text-decoration:underline;
-    text-underline-position: below;
-    text-underline-offset: 1rem;
-    text-decoration-thickness: 0.3rem;
-}
-.slide4 ::ng-deep .carousel-control-next{
-    right: 31rem;
-}
+// ::ng-deep .next_page a.active{
+//     color: blue;
+//     text-decoration:underline;
+//     text-underline-position: below;
+//     text-underline-offset: 1rem;
+//     text-decoration-thickness: 0.3rem;
+// }
+// .slide4 ::ng-deep .carousel-control-next{
+//     right: 31rem;
+// }
+// a:not([href]):not([tabindex]){
+//     color: black;
+// }

@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { Router } from '@angular/router';
 import { FakeApiService } from 'src/app/service/fake-api.service';
 
 @Component({
@@ -8,24 +9,23 @@ import { FakeApiService } from 'src/app/service/fake-api.service';
 })
 export class ShopComponent implements OnInit {
 
-  constructor( private service:FakeApiService) { }
+  constructor( private service:FakeApiService,private router:Router) { }
 
+  singledata:any;
   apidata:any;
   filterCategory:any;
   searchKey:string ="";
   centered = false;
   s_max=1000;
   s_min=10;
-  tempdata:any;
 
 
   ngOnInit(): void {
-    // this.tempdata =this.apidata.(0,3) 
-
+    console.log(this.singledata);
+    
     this.service.getdata().subscribe((data:any)=>{
       this.apidata = data;    
       this.filterCategory = data;
-      console.log(data);  
     })
   }
   image=[
@@ -46,16 +46,14 @@ export class ShopComponent implements OnInit {
     })
   }
 
-  showMore() {
-    let newLength = this.filterCategory.length + 3;
-    if (this.apidata.length >0) {
-        this.filterCategory.push(this.apidata.length(10))
-    }
-  }
-
   slideConfig = { 
     slidesToShow: 4, 
     slidesToScroll: 4,
     autoplay:true,
   };
+
+  id:any;
+  expand_data(data:any){    
+    this.router.navigate(['product-details'],{queryParams:{data:JSON.stringify(data)}})    
+  }
 }

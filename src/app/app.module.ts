@@ -27,6 +27,7 @@ import {MatSliderModule} from '@angular/material/slider';
 import { FooterComponent } from './components/footer/footer.component';
 import {MatTabsModule} from '@angular/material/tabs';
 import {MatButtonModule} from '@angular/material/button';
+import { fakeapidata } from './model/fake-api-data';
 
 @NgModule({
   declarations: [
@@ -61,7 +62,7 @@ import {MatButtonModule} from '@angular/material/button';
     MatTabsModule,
     MatButtonModule
   ],
-  providers: [RatingConfig],
+  providers: [RatingConfig,fakeapidata],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

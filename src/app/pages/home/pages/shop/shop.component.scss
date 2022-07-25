@@ -3,7 +3,7 @@
     background: linear-gradient(#7D89FF, #AB40FF);
     color: white;
 }
-.center{
+.center_img{
     width: 5rem;
     height: 5rem;
     border-radius: 50%;
@@ -32,4 +32,12 @@ mat-card{
 ::ng-deep .bs-rating-star.active{
     color: yellow;
     font-size: 1.5rem;
+}
+.center{
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+    width: 30%;
+    height: 30%;
+    background-color: #5463FF;
 }

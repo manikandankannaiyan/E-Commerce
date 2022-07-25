@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { fakeapidata } from 'src/app/model/fake-api-data';
 
 @Component({
   selector: 'app-cart',
@@ -7,9 +8,11 @@ import { Component, OnInit } from '@angular/core';
 })
 export class CartComponent implements OnInit {
 
-  constructor() { }
+  cartlist:any;
+  constructor(private service:fakeapidata) { }
 
   ngOnInit(): void {
+    this.cartlist = this.service.servecart();  
   }
 
 }
