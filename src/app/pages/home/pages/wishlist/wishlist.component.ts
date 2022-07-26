@@ -9,14 +9,22 @@ import { fakeapidata } from 'src/app/model/fake-api-data';
 export class WishlistComponent implements OnInit {
 
   wishlist:any;
-  constructor(private service:fakeapidata) { }
+  price: any;
+  n=1;
+  single_data: any;
+  constructor(private api:fakeapidata) { }
 
   ngOnInit(): void {
-    this.wishlist = this.service.servewish();    
+    this.wishlist = this.api.servewish();    
   }
 
-  savecartlist(){
-    // this.service.savecart(this.single_data);
+  savecartlist(data:any){
+    console.log(data);
+    
+    this.api.savecart(data);
   }
 
+  removeitem(item: any){
+    this.api.removeitem(item);
+  }
 }

@@ -1,11 +1,12 @@
 <div class="p-5">
     <div class="row">
         <div class="col-sm-6 d-flex flex-column justify-content-center align-items-center pt-4">
-            <img style="width: 15rem;height:15rem;" [src]="single_data.image" alt="">
-            <div class="sub_img">
-                <img [src]="" alt="">
-                <img [src]="" alt="">
-                <img [src]="" alt="">
+            <img style="width: 15rem;height:15rem;" [src]="single_data.image.img1" alt="">
+            <div class="sub_img d-flex align-items-center mt-3">
+                <img (click)="imgchange(single_data.image.img2)" style="width: 5rem;height:5rem; border: 1px solid;" class="m-1" [src]="single_data.image.img2" alt="">
+                <img (click)="imgchange(single_data.image.img3)" style="width: 5rem;height:5rem; border: 1px solid;" class="m-1" [src]="single_data.image.img3" alt="">
+                <img (click)="imgchange(single_data.image.img4)" style="width: 5rem;height:5rem; border: 1px solid;" class="m-1" [src]="single_data.image.img4" alt="">
+                <img (click)="imgchange(single_data.image.img5)" style="width: 5rem;height:5rem; border: 1px solid;" class="m-1" [src]="single_data.image.img5" alt="">
             </div>
         </div>
         <div class="col-sm-6">
@@ -23,10 +24,9 @@
                 <div class="col-6">
                     <label><b>Color</b></label>
                     <div>
-                        <input class="mr-1" type="radio">
-                        <input class="mr-1" type="radio">
-                        <input class="mr-1" type="radio">
-                        <input class="mr-1" type="radio">
+                        <a style="cursor: pointer;" (click)="color('black')" class="mr-2"><img src="./assets/icons/black.png" alt=""></a>
+                        <a style="cursor: pointer;" (click)="color('white')" class="mr-2"><img src="./assets/icons/white.png" alt=""></a>
+                        <a style="cursor: pointer;" (click)="color('green')" class="mr-2"><img src="./assets/icons/green2.png" alt=""></a>
                     </div>
                 </div>
                 <div class="col-6">
@@ -38,24 +38,28 @@
                 </div>
            </div>
             <label><b>Size</b></label>
-            <div class="d-flex">
+            <mat-radio-group aria-label="Select an option" class="d-flex">
                 <div class="mr-3">
                     <p>S</p>
-                    <input type="radio">
+                    <mat-radio-button value=""></mat-radio-button>
                 </div>
                 <div class="mr-3">
                     <p>M</p>
-                    <input type="radio">
+                    <mat-radio-button value=""></mat-radio-button>
                 </div>
                 <div class="mr-3">
                     <p>L</p>
-                    <input type="radio">
+                    <mat-radio-button value=""></mat-radio-button>
                 </div>
                 <div class="mr-3">
                     <p>XL</p>
-                    <input type="radio">
+                    <mat-radio-button value=""></mat-radio-button>
                 </div>
-            </div>
+                <div class="mr-3">
+                    <p>XXL</p>
+                    <mat-radio-button value=""></mat-radio-button>
+                </div>
+            </mat-radio-group>
             <label><b>Quantity</b></label>
             <div class="row">
                 <div class="col-6">
@@ -97,8 +101,8 @@
     <div class="d-flex align-items-center justify-content-center"><h2><b>Same Product</b></h2></div>
     <div class="row" >
         <div class="col-xs-6 col-sm-6 col-lg-4 " *ngFor="let item of filterCategory | filter:searchKey:'title'|slice:0:12">
-            <mat-card (click)="select(item)" matRipple [matRippleCentered]="centered" class="m-5">
-                <img [src]="item.image" class="center" alt="" width="50%">
+            <mat-card (click)="selectproduct(item)" matRipple [matRippleCentered]="centered" class="m-5">
+                <img [src]="item.image.img1" class="center" alt="" width="50%">
                 <div class="d-flex justify-content-between mt-4">
                     <h3><b>{{item.category}}</b></h3>
                     <h3><b>{{item.price}} Rs.</b></h3>

@@ -14,11 +14,11 @@ export class ProductDetailsComponent implements OnInit {
   filterCategory:any;
   searchKey:string ="";
   centered = false;
-  n=1
+  n:any;
   single_data:any;
   price:any
 
-  constructor(private service:FakeApiService,private route:ActivatedRoute,private modeldata:fakeapidata) { }
+  constructor(private service:FakeApiService,private route:ActivatedRoute,private api:fakeapidata) { }
 
   ngOnInit(): void {
     this.route.queryParams.subscribe((data:any)=>{
@@ -26,13 +26,15 @@ export class ProductDetailsComponent implements OnInit {
       console.log(this.single_data);
     })
     
-    this.service.getdata().subscribe((data:any)=>{
-      this.apidata = data;    
-      this.filterCategory = data;
-    })
+    this.apidata=this.api.datalist;
+    this.filterCategory=this.api.datalist;  
+    // this.service.getdata().subscribe((data:any)=>{
+    //   this.apidata = data;    
+    //   this.filterCategory = data;
+    // })
 
     this.price=this.single_data.price ;
-    console.log(this.price);
+    this.n=this.single_data.addcount;
   }
 
   // filter(category:string){
@@ -44,7 +46,7 @@ export class ProductDetailsComponent implements OnInit {
   //   })
   // }
 
-  select(data:any){
+  selectproduct(data:any){
     console.log(data)
     this.single_data=data;
     this.price=data.price;
@@ -52,20 +54,36 @@ export class ProductDetailsComponent implements OnInit {
   }
 
   increament(){
-    
-    this.n+=1;
-    this.price+=this.price
+    if (isNaN(this.n) || this.n < 1) {
+      this.n = 1;
+    }
+    this.n++;
+    this.price=this.single_data.price*this.n
+   
   }
   decreament(){
-    if(this.n>1){
-      this.n-=1;
-      this.price=this.single_data.price*this.n;
+    if (isNaN(this.n) || this.n < 1) {
+      this.n = 1;
     }
+    this.n--;
+    this.price=this.single_data.price*this.n
   }
+  
   savewishlist(){
-    this.modeldata.savewish(this.single_data);
+    this.single_data.price=this.price;
+    this.single_data.addcount=this.n;
+    this.api.savewish(this.single_data);
   }
   savecartlist(){
-    this.modeldata.savecart(this.single_data);
+    this.single_data.price=this.price;
+    this.single_data.addcount=this.n;
+    this.api.savecart(this.single_data);
+  }
+  imgchange(data:any){
+    this.single_data.image.img1=data;
+  }
+
+  color(data:any){
+    this.single_data.color=data;
   }
 }

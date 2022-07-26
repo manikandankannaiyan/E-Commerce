@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { fakeapidata } from 'src/app/model/fake-api-data';
 import { FakeApiService } from 'src/app/service/fake-api.service';
 declare var $:any;
 
@@ -17,17 +18,19 @@ export class HomeComponent implements OnInit {
 
   searchKey:string ="";
 
-  filterCategory : any
+  filterCategory : any;
 
-  constructor( private service:FakeApiService) { }
+  constructor( private service:FakeApiService, private api:fakeapidata) { }
 
   ngOnInit(): void {    
+    this.apidata=this.api.datalist;
+    this.filterCategory=this.api.datalist;    
       
-    this.service.getdata().subscribe((data:any)=>{
-      this.apidata = data;    
-      this.filterCategory = data;
-      console.log(data);    
-    })
+    // this.service.getdata().subscribe((data:any)=>{
+    //   this.apidata = data;    
+    //   this.filterCategory = data;
+    //   console.log(data);    
+    // })
   }
 
   slideConfig1 = { 

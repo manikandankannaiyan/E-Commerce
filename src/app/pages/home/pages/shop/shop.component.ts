@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
+import { fakeapidata } from 'src/app/model/fake-api-data';
 import { FakeApiService } from 'src/app/service/fake-api.service';
 
 @Component({
@@ -9,7 +10,7 @@ import { FakeApiService } from 'src/app/service/fake-api.service';
 })
 export class ShopComponent implements OnInit {
 
-  constructor( private service:FakeApiService,private router:Router) { }
+  constructor( private service:FakeApiService,private router:Router,private api:fakeapidata) { }
 
   singledata:any;
   apidata:any;
@@ -23,13 +24,15 @@ export class ShopComponent implements OnInit {
   ngOnInit(): void {
     console.log(this.singledata);
     
-    this.service.getdata().subscribe((data:any)=>{
-      this.apidata = data;    
-      this.filterCategory = data;
-    })
+    this.apidata=this.api.datalist;
+    this.filterCategory=this.api.datalist;    
+    // this.service.getdata().subscribe((data:any)=>{
+    //   this.apidata = data;    
+    //   this.filterCategory = data;
+    // })
   }
   image=[
-    {img:'./assets/icons/all-pro.png',name:'All Products',filter:''},
+    {img:'./assets/icons/all-pro.jpg',name:'All Products',filter:''},
     {img:'./assets/icons/tshirt.png',name:'Mens',filter:"men's clothing"},
     {img:'./assets/icons/jwell.png',name:'Jwellary',filter:'jewelery'},
     {img:'./assets/icons/electro.png',name:'Electronic',filter:'electronics'},
@@ -37,6 +40,7 @@ export class ShopComponent implements OnInit {
   ]
 
 
+  title:any;
   filter(category:string){
     this.filterCategory = this.apidata
     .filter((a:any)=>{
@@ -44,6 +48,7 @@ export class ShopComponent implements OnInit {
         return a;
       }
     })
+
   }
 
   slideConfig = { 

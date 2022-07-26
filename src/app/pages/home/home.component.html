@@ -9,7 +9,7 @@
            <div class="slide1 ">
             <ngx-slick-carousel class="carousel" id="slider" [config]="slideConfig1">
                 <div ngxSlickItem *ngFor="let item of apidata" class="slide">
-                <img [src]="item.image" class="center1" alt="" width="50%">
+                <img [src]="item.image.img1" class="center1" alt="" width="50%">
                 </div>
             </ngx-slick-carousel>
            </div>
@@ -19,7 +19,7 @@
                 <carousel [noWrap]="false" [showIndicators]="true">
                     <slide  *ngFor="let slide of apidata; let index=index">
                        <div class="d-flex justify-content-center align-items-center flex-column">
-                         <img [src]="slide.image" class="center2" alt="image slide">
+                         <img [src]="slide.image.img1" class="center2" alt="image slide">
                        </div>
                     </slide>
                  </carousel>
@@ -50,7 +50,7 @@
                 <carousel [noWrap]="false" [showIndicators]="true">
                    <slide  *ngFor="let slide of apidata; let index=index">
                       <div class="d-flex justify-content-center align-items-center flex-column">
-                        <img [src]="slide.image" class="center3" alt="image slide">
+                        <img [src]="slide.image.img1" class="center3" alt="image slide">
                         <h3 class="title_carousel"><b>{{slide.category}}</b></h3>
                       </div>
                    </slide>
@@ -77,7 +77,7 @@
     <div class="row" >
         <div class="col-xs-6 col-sm-4 col-lg-3 " *ngFor="let item of filterCategory | filter:searchKey:'title'|slice:0:8">
             <mat-card matRipple [matRippleCentered]="centered" class="m-5" routerLink="shop">
-                <img [src]="item.image" class="center" alt="" width="50%">
+                <img [src]="item.image.img1" class="center" alt="" width="50%">
                 <div class="d-flex justify-content-between mt-4">
                     <h3><b>{{item.category}}</b></h3>
                     <h3><b>{{item.price}} Rs.</b></h3>
@@ -102,7 +102,7 @@
                 <slide  *ngFor="let slide of apidata; let index=index">
                     <div class="row d-flex justify-content-center align-items-center">
                         <div style="height: 588px;" class=" col-sm-6 d-flex justify-content-center align-items-center">
-                            <img [src]="slide.image"  class="center4" alt="image slide">
+                            <img [src]="slide.image.img1"  class="center4" alt="image slide">
                         </div>
                         <div class="col-sm-6 pl-sm-5 d-flex flex-column justify-content-center align-items-start" style="height: 588px;">
                             <h1><b>{{slide.category}}</b></h1>

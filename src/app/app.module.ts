@@ -28,6 +28,8 @@ import { FooterComponent } from './components/footer/footer.component';
 import {MatTabsModule} from '@angular/material/tabs';
 import {MatButtonModule} from '@angular/material/button';
 import { fakeapidata } from './model/fake-api-data';
+import {MatRadioModule} from '@angular/material/radio';
+import {MatExpansionModule} from '@angular/material/expansion';
 
 @NgModule({
   declarations: [
@@ -60,7 +62,9 @@ import { fakeapidata } from './model/fake-api-data';
     MatRippleModule,
     MatSliderModule,
     MatTabsModule,
-    MatButtonModule
+    MatButtonModule,
+    MatRadioModule,
+    MatExpansionModule
   ],
   providers: [RatingConfig,fakeapidata],
   bootstrap: [AppComponent]
