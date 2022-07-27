@@ -26,11 +26,9 @@ export class HomeComponent implements OnInit {
     this.apidata=this.api.datalist;
     this.filterCategory=this.api.datalist;    
       
-    // this.service.getdata().subscribe((data:any)=>{
-    //   this.apidata = data;    
-    //   this.filterCategory = data;
-    //   console.log(data);    
-    // })
+    this.api.search.subscribe((val:any)=>{      
+      this.searchKey = val;
+    })
   }
 
   slideConfig1 = { 
@@ -39,7 +37,7 @@ export class HomeComponent implements OnInit {
     arrows: false,
     vertical:true,
     autoplay:true,
-    verticalSwiping:true
+    verticalSwiping:true,
   };
   slideConfig2 = { 
     slidesToShow: 2, 

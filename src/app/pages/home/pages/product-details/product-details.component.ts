@@ -23,7 +23,6 @@ export class ProductDetailsComponent implements OnInit {
   ngOnInit(): void {
     this.route.queryParams.subscribe((data:any)=>{
       this.single_data=JSON.parse(data.data)
-      console.log(this.single_data);
     })
     
     this.apidata=this.api.datalist;
@@ -31,10 +30,13 @@ export class ProductDetailsComponent implements OnInit {
 
     this.price=this.single_data.price ;
     this.n=this.single_data.addcount;
+
+    this.api.search.subscribe((val:any)=>{      
+      this.searchKey = val;
+    })
   }
 
   selectproduct(data:any){
-    console.log(data)
     this.single_data=data;
     this.price=data.price;
     this.n=1

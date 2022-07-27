@@ -25,8 +25,8 @@
         <img class="pr-3" src="./assets/icons/heart.png" routerLink="wishlist" alt="">
         <img class="pr-3 " src="./assets/icons/profile1.png" alt="">
     </div>
-      <form class="form-inline my-2 my-lg-0">
-        <input class="form-control mr-sm-2" type="search" placeholder="Search">
+      <form class="form-group form-inline my-2 my-lg-0">
+        <input class="form-control mr-sm-2" type="text" name="mysearch" [(ngModel)]="searchTerm" (keyup)="search($event)" placeholder="Search">
         <img class="search my-2 my-sm-0" src="./assets/icons/search.png">
       </form>
     </div>

@@ -9,6 +9,9 @@ import { fakeapidata } from 'src/app/model/fake-api-data';
 export class NavbarComponent implements OnInit {
 
   cartitem:any;
+  filterCategory:any;
+  apidata:any
+  public searchTerm !: string;
   constructor(private api:fakeapidata) { }
 
   ngOnInit(): void {
@@ -21,4 +24,11 @@ export class NavbarComponent implements OnInit {
   toggleNavbarCollapsing() {
       this.navbarCollapsed = !this.navbarCollapsed;
   }
+
+  search(event:any){
+    this.searchTerm = (event.target as HTMLInputElement).value;
+    console.log(this.searchTerm);
+    this.api.search.next(this.searchTerm);
+  }
+
 }

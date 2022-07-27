@@ -29,6 +29,9 @@ export class ShopComponent implements OnInit {
     this.apidata=this.api.datalist;
     this.filterCategory=this.api.datalist;
     
+    this.api.search.subscribe((val:any)=>{      
+      this.searchKey = val;
+    })
   }
 
   image=[

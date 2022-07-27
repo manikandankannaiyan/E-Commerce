@@ -19,7 +19,6 @@ export class WishlistComponent implements OnInit {
   }
 
   savecartlist(data:any){
-    console.log(data);
     
     this.api.savecart(data);
   }

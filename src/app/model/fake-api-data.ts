@@ -3,7 +3,9 @@ import { BehaviorSubject } from 'rxjs';
 
 @Injectable()
 export class fakeapidata {
-  public datalist: any[] = 
+  public search = new BehaviorSubject<string>("");
+  public saveitem = new BehaviorSubject<any>([]);
+  public datalist: any = 
     [
       {
         id: 1,
@@ -312,13 +314,19 @@ export class fakeapidata {
         color:""
       },
     ]
+    
+  public carttemp:any=[];
+  public wishtemp:any[]=[];
+
+    setProduct(data : any){
+      this.datalist.push(data);
+      this.saveitem.next(data)
+    }
+  
 
   getdata():any{
     this.datalist;
-  }
-
-  public carttemp:any=[];
-  public wishtemp:any[]=[];
+  } 
 
   savewish(data: any){
     this.wishtemp.push(data);
@@ -329,7 +337,7 @@ export class fakeapidata {
   }
 
   
-  public saveitem = new BehaviorSubject<any>([]);
+  
   savecart(data:any){
     this.carttemp.push(data);
     this.saveitem.next(this.carttemp);
