@@ -13,7 +13,6 @@ export class CartComponent implements OnInit {
   totalprice:number=0;
   price:number=0;
   standardprice:any;
-  @Output() notification :EventEmitter<string>= new EventEmitter(); 
   notify:any;
   constructor(private api:fakeapidata) { }
 
@@ -31,9 +30,6 @@ export class CartComponent implements OnInit {
     this.notify=this.cartlist.length;
     
   }
-  sendValues(){  
-    this.notification.emit(this.notify);  
- }
 
   increament(){
     if (this.n==0 || this.n < 1) {
@@ -63,4 +59,7 @@ export class CartComponent implements OnInit {
     this.api.removeitemcart(item);
   }
 
+  checkout(){
+    alert('Total Amount:'+this.totalprice,)
+  }
 }
