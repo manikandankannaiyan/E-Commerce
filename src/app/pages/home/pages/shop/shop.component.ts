@@ -61,4 +61,10 @@ export class ShopComponent implements OnInit {
   expand_data(data:any){    
     this.router.navigate(['product-details'],{queryParams:{data:JSON.stringify(data)}})    
   }
+
+  navbarCollapsed = true;
+
+  toggleNavbarCollapsing() {
+      this.navbarCollapsed = !this.navbarCollapsed;
+  }
 }

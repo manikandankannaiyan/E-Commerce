@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { fakeapidata } from 'src/app/model/fake-api-data';
 
 @Component({
   selector: 'app-navbar',
@@ -7,9 +8,13 @@ import { Component, OnInit } from '@angular/core';
 })
 export class NavbarComponent implements OnInit {
 
-  constructor() { }
+  cartitem:any;
+  constructor(private api:fakeapidata) { }
 
   ngOnInit(): void {
+    this.api.getnotify().subscribe((data:any)=>{
+      this.cartitem=data.length;
+    })    
   }
   navbarCollapsed = true;
 

@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
 import { fakeapidata } from 'src/app/model/fake-api-data';
 
 @Component({
@@ -8,25 +8,40 @@ import { fakeapidata } from 'src/app/model/fake-api-data';
 })
 export class CartComponent implements OnInit {
 
-  price!:number;
   n:any;
   cartlist:any;
-
+  totalprice:number=0;
+  price:number=0;
+  standardprice:any;
+  @Output() notification :EventEmitter<string>= new EventEmitter(); 
+  notify:any;
   constructor(private api:fakeapidata) { }
 
   ngOnInit(): void {
-    this.cartlist=this.api.wishtemp;
+    this.cartlist=this.api.carttemp;
+    
+    for(let item of this.cartlist){
+      this.totalprice=this.totalprice+item.price;
 
-    this.price=this.cartlist.price ;
-    this.n=this.cartlist.addcount;
+      this.price=item.price;
+      this.n=item.addcount;
+      this.standardprice=item.price/item.addcount;
+      
+    }
+    this.notify=this.cartlist.length;
+    
   }
+  sendValues(){  
+    this.notification.emit(this.notify);  
+ }
 
   increament(){
     if (isNaN(this.n) || this.n < 1) {
       this.n = 1;
-    }
+    } 
     this.n++;
-    this.price=this.cartlist.price*this.n
+    this.price=this.standardprice*this.n;    
+    this.totalprice=this.price;
    
   }
   decreament(){
@@ -34,7 +49,8 @@ export class CartComponent implements OnInit {
       this.n = 1;
     }
     this.n--;
-    this.price=this.cartlist.price*this.n
+    this.price=this.standardprice*this.n;
+    this.totalprice=this.price;
   }
 
   navbarCollapsed = true;
@@ -44,6 +60,7 @@ export class CartComponent implements OnInit {
   }
 
   removeitem(item: any){
-    this.api.removeitem(item);
+    this.api.removeitemcart(item);
   }
+
 }

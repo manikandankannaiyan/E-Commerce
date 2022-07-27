@@ -2,7 +2,7 @@
     <div class="row p-5  align-items-center ">
         <div class="col-md-6 px-5 mt-3">
             <h4 style="word-spacing: 1rem;">Home / <b>Cart</b></h4>
-            <h1 class="pt-4"><b>Wishlist</b></h1>
+            <h1 class="pt-4"><b>Cart</b></h1>
             <h5>Lorem ipsum dolor sit amet, consectetur adipiscing elit. In eget gravida leo, nec iaculis diam. Nam bibendum mi sed sem finibus ullamcorper.</h5>
         </div>
     </div>
@@ -11,7 +11,7 @@
     <h2><b>Cart Product</b></h2>
     <div class="row d-flex justify-content-start" >
         <div class="col-7" >
-            <div class="row"*ngFor="let item of cartlist" style="background-color: #F4F4F4;">
+            <div class="row mt-3"*ngFor="let item of cartlist" style="background-color: #F4F4F4;">
                 <div class="col-4 py-5 px-2">
                     <div>
                         <img style="width:5rem;height:5rem" [src]="item.image.img1" alt="">
@@ -26,7 +26,7 @@
                     </div>
                 </div>
                 <div class="col-4 py-5 px-2">
-                    <p><b>Rs. {{item.price}}</b></p>
+                    <p><b>Rs. {{totalprice}}</b></p>
                     <p>Price</p>
                 </div>
                 <div class="col-4 py-5 px-2">
@@ -35,7 +35,7 @@
                             <p><b>{{item.stock}}</b></p>
                             <p>In Stock</p>
                         </div>
-                        <img (click)="removeitem(item)" src="./assets/icons/delete.png" alt="">
+                        <img (click)="removeitem(item.id)" src="./assets/icons/delete.png" alt="">
                     </div>
                     <div class="d-flex align-items-center" style=" border:solid 1px; width:fit-content;" >
                         <a style="color:black" (click)="decreament()" class="pl-1 pr-5"><b>-</b></a>
@@ -49,18 +49,18 @@
             <div>
                 <h3><b>Coupon Code</b></h3>
                 <input type="text" class="form-control">
-                <button class="btn">Checkout</button>
+                <button class="btn mt-3">Check</button>
                 <div>
                     <div>
                         <h3><b>Subtotal</b></h3>
                         <h3></h3>
                     </div>
-                    <div><h3>Rs. </h3></div>
+                    <div><h3>Rs. {{totalprice}} </h3></div>
                 </div>
                 <hr>
                 <div>
                     <div><h3><b>Total</b></h3></div>
-                    <div><h3>Rs. {{price}} </h3></div>
+                    <div><h3>Rs. {{totalprice}} </h3></div>
                 </div>
                 <button class="btn">Checkout</button>
             </div>

@@ -14,7 +14,7 @@
             </ngx-slick-carousel>
            </div>
         </div>
-        <div class="col-sm-4 d-flex flex justify-content-md-center">
+        <div class="col-lg-4 d-flex flex justify-content-md-center">
             <div class="slide2">
                 <carousel [noWrap]="false" [showIndicators]="true">
                     <slide  *ngFor="let slide of apidata; let index=index">
@@ -82,6 +82,7 @@
                     <h3><b>{{item.category}}</b></h3>
                     <h3><b>{{item.price}} Rs.</b></h3>
                 </div>
+                <h4 style="color: #969696;">{{item.quality}}</h4>
                 <div class="d-flex">
                     <rating class="pt-1" [ngModel]="item.rating.rate" 
                         [max]="5" 
@@ -101,10 +102,10 @@
             <carousel [noWrap]="false" [showIndicators]="true">
                 <slide  *ngFor="let slide of apidata; let index=index">
                     <div class="row d-flex justify-content-center align-items-center">
-                        <div style="height: 588px;" class=" col-sm-6 d-flex justify-content-center align-items-center">
+                        <div  class=" col-sm-6 d-flex justify-content-sm-center align-items-sm-center">
                             <img [src]="slide.image.img1"  class="center4" alt="image slide">
                         </div>
-                        <div class="col-sm-6 pl-sm-5 d-flex flex-column justify-content-center align-items-start" style="height: 588px;">
+                        <div class="col-sm-6 pl-sm-5 d-flex flex-column justify-content-sm-center align-items-sm-start" style="height: 588px;">
                             <h1><b>{{slide.category}}</b></h1>
                             <div class="d-flex justify-content-between align-items-center">
                                 <div class="gp-1">

@@ -1,15 +1,14 @@
 import { Injectable } from '@angular/core'
-import { BehaviorSubject } from 'rxjs';
+import { BehaviorSubject, Subject } from 'rxjs';
 
 @Injectable()
 export class fakeapidata {
-  public saveitem = new BehaviorSubject<any>([]);
-  public savecount = new BehaviorSubject<string>("");
   public datalist: any[] = 
     [
       {
         id: 1,
         addcount:1,
+        quality:'Best quality',
         stock:52,
         title: 'Fjallraven - Foldsack No. 1 Backpack, Fits 15 Laptops',
         price: 109.95,
@@ -24,6 +23,7 @@ export class fakeapidata {
       {
         id: 2,
         addcount:1,
+        quality:'Best quality',
         stock:34,
         title: 'Mens Casual Premium Slim Fit T-Shirts ',
         price: 22.3,
@@ -38,6 +38,7 @@ export class fakeapidata {
       {
         id: 3,
         addcount:1,
+        quality:'Best quality',
         stock:68,
         title: 'Mens Cotton Jacket',
         price: 55.99,
@@ -52,6 +53,7 @@ export class fakeapidata {
       {
         id: 4,
         addcount:1,
+        quality:'Best quality',
         stock:27,
         title: 'Mens Casual Slim Fit',
         price: 15.99,
@@ -66,6 +68,7 @@ export class fakeapidata {
       {
         id: 5,
         addcount:1,
+        quality:'Best quality',
         stock:97,
         title:
           "John Hardy Women's Legends Naga Gold & Silver Dragon Station Chain Bracelet",
@@ -81,6 +84,7 @@ export class fakeapidata {
       {
         id: 6,
         addcount:1,
+        quality:'Best quality',
         stock:37,
         title: 'Solid Gold Petite Micropave ',
         price: 168,
@@ -95,6 +99,7 @@ export class fakeapidata {
       {
         id: 7,
         addcount:1,
+        quality:'Best quality',
         stock:865,
         title: 'White Gold Plated Princess',
         price: 9.99,
@@ -109,6 +114,7 @@ export class fakeapidata {
       {
         id: 8,
         addcount:1,
+        quality:'Best quality',
         stock:256,
         title: 'Pierced Owl Rose Gold Plated Stainless Steel Double',
         price: 10.99,
@@ -123,6 +129,7 @@ export class fakeapidata {
       {
         id: 9,
         addcount:1,
+        quality:'Best quality',
         stock:854,
         title: 'WD 2TB Elements Portable External Hard Drive - USB 3.0 ',
         price: 64,
@@ -137,6 +144,7 @@ export class fakeapidata {
       {
         id: 10,
         addcount:1,
+        quality:'Best quality',
         stock:756,
         title: 'SanDisk SSD PLUS 1TB Internal SSD - SATA III 6 Gb/s',
         price: 109,
@@ -151,6 +159,7 @@ export class fakeapidata {
       {
         id: 11,
         addcount:1,
+        quality:'Best quality',
         stock:595,
         title:
           'Silicon Power 256GB SSD 3D NAND A55 SLC Cache Performance Boost SATA III 2.5',
@@ -166,6 +175,7 @@ export class fakeapidata {
       {
         id: 12,
         addcount:1,
+        quality:'Best quality',
         stock:248,
         title:
           'WD 4TB Gaming Drive Works with Playstation 4 Portable External Hard Drive',
@@ -181,6 +191,7 @@ export class fakeapidata {
       {
         id: 13,
         addcount:1,
+        quality:'Best quality',
         stock:483,
         title:
           'Acer SB220Q bi 21.5 inches Full HD (1920 x 1080) IPS Ultra-Thin',
@@ -196,6 +207,7 @@ export class fakeapidata {
       {
         id: 14,
         addcount:1,
+        quality:'Best quality',
         stock:89,
         title:
           'Samsung 49-Inch CHG90 144Hz Curved Gaming Monitor (LC49HG90DMNXZA) – Super Ultrawide Screen QLED ',
@@ -211,6 +223,7 @@ export class fakeapidata {
       {
         id: 15,
         addcount:1,
+        quality:'Best quality',
         stock:26,
         title: "BIYLACLESEN Women's 3-in-1 Snowboard Jacket Winter Coats",
         price: 56.99,
@@ -225,6 +238,7 @@ export class fakeapidata {
       {
         id: 16,
         addcount:1,
+        quality:'Best quality',
         stock:78,
         title:
           "Lock and Love Women's Removable Hooded Faux Leather Moto Biker Jacket",
@@ -240,6 +254,7 @@ export class fakeapidata {
       {
         id: 17,
         addcount:1,
+        quality:'Best quality',
         stock:92,
         title: 'Rain Jacket Women Windbreaker Striped Climbing Raincoats',
         price: 39.99,
@@ -254,6 +269,7 @@ export class fakeapidata {
       {
         id: 18,
         addcount:1,
+        quality:'Best quality',
         stock:10,
         title: "MBJ Women's Solid Short Sleeve Boat Neck V ",
         price: 9.85,
@@ -268,6 +284,7 @@ export class fakeapidata {
       {
         id: 19,
         addcount:1,
+        quality:'Best quality',
         stock:69,
         title: "Opna Women's Short Sleeve Moisture",
         price: 7.95,
@@ -282,6 +299,7 @@ export class fakeapidata {
       {
         id: 20,
         addcount:1,
+        quality:'Best quality',
         stock:65,
         title: 'DANVOUY Womens T Shirt Casual Cotton Short',
         price: 12.99,
@@ -299,22 +317,45 @@ export class fakeapidata {
     this.datalist;
   }
 
-  public carttemp:any[]=[];
+  public carttemp:any=[];
   public wishtemp:any[]=[];
+  // totalprice: Subject<number>=new BehaviorSubject<number>(0);
+  // totalquantity: Subject<number>=new BehaviorSubject<number>(0);
+  // quantityadd: Subject<number>=new BehaviorSubject<number>(0);
+  // detailaddquantity: Subject<number>=new BehaviorSubject<number>(0);
 
   savewish(data: any){
     this.wishtemp.push(data);
-    this.saveitem.next(this.wishtemp);
-    this.totalPrice();
+    // this.saveitem.next(this.wishtemp);
+    // this.totalPrice();
   }
 
   servewish(){
     return this.wishtemp;
   }
-  savecart(data: any){
+
+  
+  public saveitem = new BehaviorSubject<any>([]);
+  savecart(data:any){
     this.carttemp.push(data);
     this.saveitem.next(this.carttemp);
-    this.totalPrice();
+    
+    // var mergedcartitem = Object.assign({},data,{'quantity':1,'item':1})
+
+    // let alreadyexist:boolean =false;
+    // let exixting=undefined;
+
+    // if(this.datalist.length>0){
+    //   exixting=this.carttemp.find(tempcartitem=>tempcartitem.id===data.id)
+    //   alreadyexist=(exixting != undefined)
+    // }
+    // if(alreadyexist){
+    //   return 0;
+    // }
+    // else{
+    //   this.carttemp.push(mergedcartitem);
+    // }
+    // this.Totalprice();
   }
 
   servecart(){
@@ -322,29 +363,58 @@ export class fakeapidata {
   }
 
 
-  totalPrice() : number{
-    let Total = 0;
-    this.wishtemp.map((a:any)=>{      
-      Total += a.total;
-    })
-    return Total;
-  }
+  // totalPrice() : number{
+  //   let Total = 0;
+  //   this.wishtemp.map((a:any)=>{      
+  //     Total += a.total;
+  //   })
+  //   return Total;
+  // }
   
-  getProducts(){
+  // getProducts(){
+  //   return this.saveitem.asObservable();
+  // }
+
+  // setProduct(data : any){
+  //   this.wishtemp.push(data);
+  //   this.saveitem.next(data);
+  // }
+
+  removeitemwish(data: any){
+    const i = this.wishtemp.findIndex((e: { id: any; }) => e.id === data);
+    if (i !== -1) {
+      this.wishtemp.splice(i,1);
+    }
+  }
+  removeitemcart(data: any){
+    const i = this.carttemp.findIndex((e: { id: any; }) => e.id === data);
+    if (i !== -1) {
+      this.carttemp.splice(i,1);
+    }
+  }
+
+  // Totalprice(){
+  //   let totalprice:number=0;
+  //   let totalquantity:number=0;
+  //   let productquantity:number=0;
+  //   let detailquantity:number=0;
+
+  //   for(let item of this.carttemp){
+  //     totalprice += item.quantity*item.price;
+  //     totalquantity += item.quantity;
+  //     detailquantity += item.quantity
+  //   }
+
+  //   productquantity += this.carttemp.length
+
+  //   this.totalprice.next(totalprice);
+  //   this.totalquantity.next(totalquantity);
+  //   this.quantityadd.next(productquantity);
+  //   this.detailaddquantity.next(detailquantity);
+
+  // }
+
+  getnotify(){
     return this.saveitem.asObservable();
-  }
-
-  setProduct(data : any){
-    this.wishtemp.push(data);
-    this.saveitem.next(data);
-  }
-
-  removeitem(data: any){
-    this.wishtemp.map((a:any, index:any)=>{
-      if(data=== a.id){
-        this.wishtemp.splice(index,1);
-      }
-    })
-    this.saveitem.next(this.wishtemp);
   }
 }

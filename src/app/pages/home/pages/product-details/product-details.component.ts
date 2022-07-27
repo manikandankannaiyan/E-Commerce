@@ -58,7 +58,7 @@ export class ProductDetailsComponent implements OnInit {
       this.n = 1;
     }
     this.n++;
-    this.price=this.single_data.price*this.n
+    this.price=this.single_data.price*this.n;
    
   }
   decreament(){
@@ -66,7 +66,7 @@ export class ProductDetailsComponent implements OnInit {
       this.n = 1;
     }
     this.n--;
-    this.price=this.single_data.price*this.n
+    this.price=this.single_data.price*this.n;
   }
   
   savewishlist(){

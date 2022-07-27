@@ -28,7 +28,6 @@ import { FooterComponent } from './components/footer/footer.component';
 import {MatTabsModule} from '@angular/material/tabs';
 import {MatButtonModule} from '@angular/material/button';
 import { fakeapidata } from './model/fake-api-data';
-import {MatRadioModule} from '@angular/material/radio';
 import {MatExpansionModule} from '@angular/material/expansion';
 
 @NgModule({
@@ -63,7 +62,6 @@ import {MatExpansionModule} from '@angular/material/expansion';
     MatSliderModule,
     MatTabsModule,
     MatButtonModule,
-    MatRadioModule,
     MatExpansionModule
   ],
   providers: [RatingConfig,fakeapidata],

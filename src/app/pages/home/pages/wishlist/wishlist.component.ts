@@ -25,6 +25,6 @@ export class WishlistComponent implements OnInit {
   }
 
   removeitem(item: any){
-    this.api.removeitem(item);
+    this.api.removeitemwish(item.id);
   }
 }
