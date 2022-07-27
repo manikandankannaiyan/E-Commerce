@@ -319,15 +319,9 @@ export class fakeapidata {
 
   public carttemp:any=[];
   public wishtemp:any[]=[];
-  // totalprice: Subject<number>=new BehaviorSubject<number>(0);
-  // totalquantity: Subject<number>=new BehaviorSubject<number>(0);
-  // quantityadd: Subject<number>=new BehaviorSubject<number>(0);
-  // detailaddquantity: Subject<number>=new BehaviorSubject<number>(0);
 
   savewish(data: any){
     this.wishtemp.push(data);
-    // this.saveitem.next(this.wishtemp);
-    // this.totalPrice();
   }
 
   servewish(){
@@ -340,45 +334,12 @@ export class fakeapidata {
     this.carttemp.push(data);
     this.saveitem.next(this.carttemp);
     
-    // var mergedcartitem = Object.assign({},data,{'quantity':1,'item':1})
-
-    // let alreadyexist:boolean =false;
-    // let exixting=undefined;
-
-    // if(this.datalist.length>0){
-    //   exixting=this.carttemp.find(tempcartitem=>tempcartitem.id===data.id)
-    //   alreadyexist=(exixting != undefined)
-    // }
-    // if(alreadyexist){
-    //   return 0;
-    // }
-    // else{
-    //   this.carttemp.push(mergedcartitem);
-    // }
-    // this.Totalprice();
   }
 
   servecart(){
     return this.carttemp;
   }
 
-
-  // totalPrice() : number{
-  //   let Total = 0;
-  //   this.wishtemp.map((a:any)=>{      
-  //     Total += a.total;
-  //   })
-  //   return Total;
-  // }
-  
-  // getProducts(){
-  //   return this.saveitem.asObservable();
-  // }
-
-  // setProduct(data : any){
-  //   this.wishtemp.push(data);
-  //   this.saveitem.next(data);
-  // }
 
   removeitemwish(data: any){
     const i = this.wishtemp.findIndex((e: { id: any; }) => e.id === data);
@@ -392,27 +353,6 @@ export class fakeapidata {
       this.carttemp.splice(i,1);
     }
   }
-
-  // Totalprice(){
-  //   let totalprice:number=0;
-  //   let totalquantity:number=0;
-  //   let productquantity:number=0;
-  //   let detailquantity:number=0;
-
-  //   for(let item of this.carttemp){
-  //     totalprice += item.quantity*item.price;
-  //     totalquantity += item.quantity;
-  //     detailquantity += item.quantity
-  //   }
-
-  //   productquantity += this.carttemp.length
-
-  //   this.totalprice.next(totalprice);
-  //   this.totalquantity.next(totalquantity);
-  //   this.quantityadd.next(productquantity);
-  //   this.detailaddquantity.next(detailquantity);
-
-  // }
 
   getnotify(){
     return this.saveitem.asObservable();

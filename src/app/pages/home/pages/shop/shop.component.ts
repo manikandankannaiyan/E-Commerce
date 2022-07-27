@@ -19,18 +19,18 @@ export class ShopComponent implements OnInit {
   centered = false;
   s_max=1000;
   s_min=10;
+  range:any;
+  min=10;
+  max=1000;
+  value=0;
+  filterdata:any;
 
-
-  ngOnInit(): void {
-    console.log(this.singledata);
-    
+  ngOnInit(): void {    
     this.apidata=this.api.datalist;
-    this.filterCategory=this.api.datalist;    
-    // this.service.getdata().subscribe((data:any)=>{
-    //   this.apidata = data;    
-    //   this.filterCategory = data;
-    // })
+    this.filterCategory=this.api.datalist;
+    
   }
+
   image=[
     {img:'./assets/icons/all-pro.jpg',name:'All Products',filter:''},
     {img:'./assets/icons/tshirt.png',name:'Mens',filter:"men's clothing"},
@@ -39,16 +39,17 @@ export class ShopComponent implements OnInit {
     {img:'./assets/icons/women.png',name:'Women',filter:"women's clothing"}
   ]
 
-
   title:any;
-  filter(category:string){
+  filter(category:any){
     this.filterCategory = this.apidata
     .filter((a:any)=>{
       if(a.category == category || category==''){
         return a;
       }
+      if(a.price >=this.min && a.price<=category){
+        return a       
+      }
     })
-
   }
 
   slideConfig = { 
@@ -67,4 +68,34 @@ export class ShopComponent implements OnInit {
   toggleNavbarCollapsing() {
       this.navbarCollapsed = !this.navbarCollapsed;
   }
+
+  navbarCollapsed1 = false;
+
+  toggleNavbarCollapsing1() {
+      this.navbarCollapsed1 = !this.navbarCollapsed1;
+  }
+
+  navbarCollapsed2 = false;
+
+  toggleNavbarCollapsing2() {
+      this.navbarCollapsed2 = !this.navbarCollapsed2;
+  }
+
+  navbarCollapsed3 = false;
+
+  toggleNavbarCollapsing3() {
+      this.navbarCollapsed3 = !this.navbarCollapsed3;
+  }
+
+  navbarCollapsed4 = false;
+
+  toggleNavbarCollapsing4() {
+      this.navbarCollapsed4 = !this.navbarCollapsed4;
+  }
+
+  
+  rangefilter(){
+   
+}
+
 }

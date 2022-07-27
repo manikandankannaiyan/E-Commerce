@@ -18,3 +18,15 @@ mat-card{
     height: 30%;
     background-color: #5463FF;
 }
+.size{
+    background-color: #F4F4F4;
+    border-radius: 50%;
+    text-align: center;
+    width: 1.5rem;
+    height: 1.5rem;
+    position: relative;
+}
+.size.active{
+    color: white;
+    background-color: blue;
+}

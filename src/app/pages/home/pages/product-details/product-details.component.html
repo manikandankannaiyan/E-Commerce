@@ -27,6 +27,7 @@
                         <a style="cursor: pointer;" (click)="color('black')" class="mr-2"><img src="./assets/icons/black.png" alt=""></a>
                         <a style="cursor: pointer;" (click)="color('white')" class="mr-2"><img src="./assets/icons/white.png" alt=""></a>
                         <a style="cursor: pointer;" (click)="color('green')" class="mr-2"><img src="./assets/icons/green2.png" alt=""></a>
+                        <div>{{single_data.color}}</div>
                     </div>
                 </div>
                 <div class="col-6">
@@ -38,28 +39,21 @@
                 </div>
            </div>
             <label><b>Size</b></label>
-            <div aria-label="Select an option" class="d-flex">
+            <div class="d-flex">
                 <div class="mr-3">
-                    <p>S</p>
-                    <input type="radio" name="size" id="">
+                    <h4 class="size"(click)="size('small')">S</h4>
                 </div>
                 <div class="mr-3">
-                    <p>M</p>
-                    <input type="radio" name="size" id="">
+                    <h4 class="size"(click)="size('medium')">M</h4>
                 </div>
                 <div class="mr-3">
-                    <p>L</p>
-                    <input type="radio" name="size" id="">
+                    <h4 class="size"(click)="size('large')">L</h4>
                 </div>
                 <div class="mr-3">
-                    <p>XL</p>
-                    <input type="radio" name="size" id="">
-                </div>
-                <div class="mr-3">
-                    <p>XXL</p>
-                    <input type="radio" name="size" id="">
+                    <h4 class="size"(click)="size('extra-large')">XL</h4>
                 </div>
             </div>
+            <div>{{Size}}</div>
             <label><b>Quantity</b></label>
             <div class="row">
                 <div class="col-6">

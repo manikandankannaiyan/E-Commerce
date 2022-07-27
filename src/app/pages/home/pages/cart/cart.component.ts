@@ -36,7 +36,7 @@ export class CartComponent implements OnInit {
  }
 
   increament(){
-    if (isNaN(this.n) || this.n < 1) {
+    if (this.n==0 || this.n < 1) {
       this.n = 1;
     } 
     this.n++;
@@ -45,7 +45,7 @@ export class CartComponent implements OnInit {
    
   }
   decreament(){
-    if (isNaN(this.n) || this.n < 1) {
+    if (this.n ==0 || this.n < 1) {
       this.n = 1;
     }
     this.n--;

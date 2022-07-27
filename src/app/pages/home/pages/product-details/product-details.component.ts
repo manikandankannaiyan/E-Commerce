@@ -1,5 +1,4 @@
 import { Component, OnInit } from '@angular/core';
-import { resetFakeAsyncZone } from '@angular/core/testing';
 import { ActivatedRoute } from '@angular/router';
 import { fakeapidata } from 'src/app/model/fake-api-data';
 import { FakeApiService } from 'src/app/service/fake-api.service';
@@ -16,7 +15,8 @@ export class ProductDetailsComponent implements OnInit {
   centered = false;
   n:any;
   single_data:any;
-  price:any
+  price:any;
+  Size:any;
 
   constructor(private service:FakeApiService,private route:ActivatedRoute,private api:fakeapidata) { }
 
@@ -28,23 +28,10 @@ export class ProductDetailsComponent implements OnInit {
     
     this.apidata=this.api.datalist;
     this.filterCategory=this.api.datalist;  
-    // this.service.getdata().subscribe((data:any)=>{
-    //   this.apidata = data;    
-    //   this.filterCategory = data;
-    // })
 
     this.price=this.single_data.price ;
     this.n=this.single_data.addcount;
   }
-
-  // filter(category:string){
-  //   this.filterCategory = this.apidata
-  //   .filter((a:any)=>{
-  //     if(a.category == category || category==''){
-  //       return a;
-  //     }
-  //   })
-  // }
 
   selectproduct(data:any){
     console.log(data)
@@ -85,5 +72,10 @@ export class ProductDetailsComponent implements OnInit {
 
   color(data:any){
     this.single_data.color=data;
+  }
+
+  
+  size(data:any){
+    this.Size=data;
   }
 }

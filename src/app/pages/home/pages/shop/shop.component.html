@@ -22,48 +22,62 @@
         <div class="col-3">
             <h2><b>T-Shirt</b></h2>
             <h4>filter <img src="./assets/icons/filter.png" alt=""></h4>
-            <label class="d-flex align-items-center">Categories<select class="form-control"></select></label>
-            <div>
+            <div  class="d-flex align-items-center justify-content-between" (click)="toggleNavbarCollapsing1()">
+                <h4>Categories</h4>
+                <img src="./assets/icons/downarrow.png" alt="">
+            </div>
+            <div [class.collapse]="navbarCollapsed1">
                 <button style="color: white;" class="btn btn-primary">Men</button>
                 <button style="color: black;" class="ml-2 btn btn-outline-secondary">Woman</button>
                 <button style="color: black;" class="ml-2 btn btn-outline-secondary">Children</button>
             </div>
             <hr>
-            <label class="d-flex align-items-center pt-2">Price<select class="form-control"></select></label>
-            <mat-slider [max]="s_max" [min]="s_min" ngModel="ui.max" style="width: 100%;"></mat-slider>
-            <div class="d-flex align-items-center justify-content-between">
-                <div>{{s_min}}</div><div>{{s_max}}</div>
+            <div  class="d-flex align-items-center justify-content-between" (click)="toggleNavbarCollapsing2()">
+                <h4>Price</h4>
+                <img src="./assets/icons/downarrow.png" alt="">
+            </div>
+            <div [class.collapse]="navbarCollapsed2">
+                <mat-slider [max]="s_max" [min]="s_min" (change)="filter(value)" [(ngModel)]="value" style="width: 100%;"></mat-slider >
+                <div class="d-flex align-items-center justify-content-between">
+                    <div>Rs. {{s_min}}</div><div>Rs. {{value}}</div><div>Rs. {{s_max}}</div>
+                </div>
             </div>
             <hr>
-            <label class="d-flex align-items-center pt-2">Color<select class="form-control"></select></label>
-            <div>
-                <a class="pr-2"><img src="./assets/icons/green.png" alt=""></a>
-                <a class="pr-2"><img src="./assets/icons/yellow.png" alt=""></a>
-                <a class="pr-2"><img src="./assets/icons/red.png" alt=""></a>
-                <a class="pr-2"><img src="./assets/icons/blue.png" alt=""></a>
+            <div  class="d-flex align-items-center justify-content-between" (click)="toggleNavbarCollapsing3()">
+                <h4>Color</h4>
+                <img src="./assets/icons/downarrow.png" alt="">
+            </div>
+            <div [class.collapse]="navbarCollapsed3">
+                <a style="cursor: pointer;" class="pr-2"><img src="./assets/icons/green.png" alt=""></a>
+                <a style="cursor: pointer;" class="pr-2"><img src="./assets/icons/yellow.png" alt=""></a>
+                <a style="cursor: pointer;" class="pr-2"><img src="./assets/icons/red.png" alt=""></a>
+                <a style="cursor: pointer;" class="pr-2"><img src="./assets/icons/blue.png" alt=""></a>
             </div>
             <hr>
-            <label class="d-flex align-items-center pt-2">Size<select class="form-control"></select></label>
-            <div aria-label="Select an option" class="d-flex">
-                <div class="mr-3">
+            <div  class="d-flex align-items-center justify-content-between" (click)="toggleNavbarCollapsing4()">
+                <h4>size</h4>
+                <img src="./assets/icons/downarrow.png" alt="">
+            </div>
+            <div [class.collapse]="navbarCollapsed4"  class="d-flex">
+                <div class="mr-3" [class.collapse]="navbarCollapsed4">
                     <p>S</p>
-                    <input type="radio" name="size">
+                    <input type="radio" value="small" name="size">
                 </div>
-                <div class="mr-3">
+                <div class="mr-3" [class.collapse]="navbarCollapsed4">
                     <p>M</p>
-                    <input type="radio" name="size">
+                    <input type="radio" value="medium" name="size">
                 </div>
-                <div class="mr-3">
+                <div class="mr-3" [class.collapse]="navbarCollapsed4">
                     <p>L</p>
-                    <input type="radio" name="size">
+                    <input type="radio" value="large" name="size">
                 </div>
-                <div class="mr-3">
+                <div class="mr-3" [class.collapse]="navbarCollapsed4">
                     <p>XL</p>
-                    <input type="radio" name="size">
+                    <input type="radio" value="extra-large" name="size">
                 </div>
-                <div class="mr-3">
+                <div class="mr-3" [class.collapse]="navbarCollapsed4">
                     <p>XXL</p>
-                    <input type="radio" name="size">
+                    <input type="radio" value="extre-extra-large" name="size">
                 </div>
             </div>
             <hr>
