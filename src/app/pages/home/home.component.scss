@@ -138,17 +138,29 @@ img.center4{
     text-decoration: none;
     cursor: pointer;
 }
+.logo{
+    width: 100%;
+}
+.logo img{
+    width: 10%;
+}
+@media(max-width:800px){
+    mat-card{
+        width: 12.5rem;
+        height: 17rem;
+    }
 
-// ::ng-deep .next_page a.active{
-//     color: blue;
-//     text-decoration:underline;
-//     text-underline-position: below;
-//     text-underline-offset: 1rem;
-//     text-decoration-thickness: 0.3rem;
-// }
-// .slide4 ::ng-deep .carousel-control-next{
-//     right: 31rem;
-// }
-// a:not([href]):not([tabindex]){
-//     color: black;
-// }
+    .center{
+        display: block;
+        margin-left: auto;
+        margin-right: auto;
+        width: 30%;
+        height: 30%;
+        background-color: #5463FF;
+    }
+}
+@media(max-width:575px){
+    .feedback mat-card{
+        margin-top: 2rem;
+    }
+}

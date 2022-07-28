@@ -8,20 +8,20 @@
     </div>
 </div>
 <div class=" m-5">
-    <div class=" row d-flex d align-items-center justify-content-between">
-        <div class="col-3  d-flex flex-column align-items-center">
+    <div class=" row d-md-flex d align-items-center justify-content-between">
+        <div class="col-sm-3  d-flex flex-column align-items-center">
             <h2><b>Product</b></h2>
         </div>
-        <div class="col-3  d-flex flex-column align-items-center">
+        <div class="col-sm-3  d-flex flex-column align-items-center">
             <h2><b>Price</b></h2>
         </div>
-        <div class="col-3  d-flex flex-column align-items-center">
+        <div class="col-sm-3  d-flex flex-column align-items-center">
             <h2><b>Stock Status</b></h2>
         </div>
-        <div class="col-3  d-flex flex-column align-items-center">
+        <div class="col-sm-3  d-flex flex-column align-items-center">
         </div>
-        <div style="width: 100%;background-color: #F4F4F4;" *ngFor="let item of wishlist" class="d-flex py-2 my-3 align-items-start justify-content-between">
-           <div class=" col-3 d-flex align-items-center ustify-content-between">
+        <div style="width: 100%;background-color: #F4F4F4;" *ngFor="let item of wishlist" class="d-md-flex py-2 my-3 align-items-start justify-content-between">
+           <div class=" col-md-3 d-flex align-items-center ustify-content-between">
                 <img (click)="removeitem(item)" src="./assets/icons/delete.png" alt="">
                 <img class="pl-2" style="width: 5rem;height:5rem;" [src]="item.image.img1" alt="">
                 <div class="pl-3">
@@ -29,15 +29,15 @@
                     <h4>Color: {{item.color}}</h4>
                 </div>
            </div>
-           <div class="col-3 d-flex flex-column align-items-center justify-content-between">
+           <div class="col-md-3 d-flex flex-column align-items-center justify-content-between">
                 <h3><b>RS.{{item.price}}</b></h3>
                 <h4>Price</h4>
            </div>
-           <div class="col-3 d-flex flex-column align-items-center justify-content-between">
+           <div class="col-md-3 d-flex flex-column align-items-center justify-content-between">
                 <h3><b>{{item.stock}}</b></h3>
                 <h4>In Stock</h4>
            </div>
-           <div class="col-3 d-flex flex-column align-items-center justify-content-between">
+           <div class="col-md-3 d-flex flex-column align-items-center justify-content-between">
             <button (click)="savecartlist(item)" class="btn">Add To Cart</button>
            </div>
         </div>

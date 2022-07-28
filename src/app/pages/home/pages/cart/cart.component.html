@@ -10,9 +10,9 @@
 <div class="m-5">
     <h2><b>Cart Product</b></h2>
     <div class="row d-flex justify-content-start" >
-        <div class="col-7" >
-            <div class="row mt-3"*ngFor="let item of cartlist" style="background-color: #F4F4F4;">
-                <div class="col-4 py-5 px-2">
+        <div class="col-md-7" >
+            <div class="row mt-3"*ngFor="let item of cartlist; let i=index" style="background-color: #F4F4F4;">
+                <div class="col-md-4 col-sm-6 col-xs-12 py-5 px-2">
                     <div>
                         <img style="width:5rem;height:5rem" [src]="item.image.img1" alt="">
                         <p class="mt-3">color: {{item.color}}</p>
@@ -25,12 +25,12 @@
                         <div [class.collapse]="navbarCollapsed">{{item.description}}</div>
                     </div>
                 </div>
-                <div class="col-4 py-5 px-2">
-                    <p><b>Rs. {{totalprice}}</b></p>
+                <div class="col-md-4 col-sm-6 col-xs-12 py-5 px-2">
+                    <p><b>Rs. {{item.price}}</b></p>
                     <p>Price</p>
                 </div>
-                <div class="col-4 py-5 px-2">
-                    <div class="d-flex align-items-start justify-content-between">
+                <div class="col-md-4 col-sm-6 col-xs-12 py-5 px-2">
+                    <div class="d-flex align-items-start justify-content-sm-between ">
                         <div>
                             <p><b>{{item.stock}}</b></p>
                             <p>In Stock</p>
@@ -38,14 +38,14 @@
                         <img (click)="removeitem(item.id)" src="./assets/icons/delete.png" alt="">
                     </div>
                     <div class="d-flex align-items-center" style=" border:solid 1px; width:fit-content;" >
-                        <a style="color:black" (click)="decreament()" class="pl-1 pr-5"><b>-</b></a>
-                        <p class="pt-3"><b>{{n}}</b></p>
-                        <a style="color:black" (click)="increament()" class="pr-1 pl-5"><b>+</b></a>
+                        <a style="color:black" (click)="decreament(item)" class="pl-1 pr-5"><b>-</b></a>
+                        <p class="pt-3"><b>{{item.addcount}}</b></p>
+                        <a style="color:black" (click)="increament(item)" class="pr-1 pl-5"><b>+</b></a>
                     </div>
                 </div>
             </div>
         </div>
-        <div class="col-5 mt-3">
+        <div class="col-md-5 mt-3">
             <div class="p-5" style="background-color: #F4F4F4;">
                 <h3><b>Coupon Code</b></h3>
                 <div class="d-flex flex-column align-items-start justify-content-between">
@@ -57,12 +57,12 @@
                         <h3><b>Subtotal</b></h3>
                         <h3>{{n}} Product</h3>
                     </div>
-                    <div><h3>Rs. {{totalprice}} </h3></div>
+                    <div><h3>Rs. {{amount}} </h3></div>
                 </div>
                 <hr>
                 <div class="d-flex align-items-start justify-content-between">
                     <div><h3><b>Total</b></h3></div>
-                    <div><h3>Rs. {{totalprice}} </h3></div>
+                    <div><h3>Rs. {{amount}} </h3></div>
                 </div>
                 <button (click)="checkout()" class="btn ml-auto">Checkout</button>
             </div>

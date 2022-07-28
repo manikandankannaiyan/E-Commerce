@@ -1,6 +1,6 @@
 <div class="p-5">
     <div class="row">
-        <div class="col-sm-6 d-flex flex-column justify-content-center align-items-center pt-4">
+        <div class="col-md-6 d-flex flex-column justify-content-center align-items-center pt-4">
             <img style="width: 15rem;height:15rem;" [src]="single_data.image.img1" alt="">
             <div class="sub_img d-flex align-items-center mt-3">
                 <img (click)="imgchange(single_data.image.img2)" style="width: 5rem;height:5rem; border: 1px solid;" class="m-1" [src]="single_data.image.img2" alt="">
@@ -9,7 +9,7 @@
                 <img (click)="imgchange(single_data.image.img5)" style="width: 5rem;height:5rem; border: 1px solid;" class="m-1" [src]="single_data.image.img5" alt="">
             </div>
         </div>
-        <div class="col-sm-6">
+        <div class="col-md-6">
             <h2><b>{{single_data.title}}</b></h2>
             <h4>{{single_data.description}}</h4>
             <div class="d-flex">
@@ -94,7 +94,7 @@
 <div>
     <div class="d-flex align-items-center justify-content-center"><h2><b>Same Product</b></h2></div>
     <div class="row" >
-        <div class="col-xs-6 col-sm-6 col-lg-4 " *ngFor="let item of filterCategory | filter:searchKey:'category'|slice:0:12">
+        <div class="col-xs-6 col-sm-6 col-lg-4  d-flex justify-content-center" *ngFor="let item of filterCategory | filter:searchKey:'category'|slice:0:12">
             <mat-card (click)="selectproduct(item)" matRipple [matRippleCentered]="centered" class="m-5">
                 <img [src]="item.image.img1" class="center" alt="" width="50%">
                 <div class="d-flex justify-content-between mt-4">

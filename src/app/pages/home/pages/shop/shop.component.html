@@ -84,7 +84,7 @@
         </div>
         <div class="col-9">
             <div class="row" >
-                <div class="col-xs-6 col-sm-6 col-lg-4 " *ngFor="let item of filterCategory | filter:searchKey:'category'|slice:0:12">
+                <div class=" col-md-6 col-lg-6 col-xl-4 d-flex justify-content-center " *ngFor="let item of filterCategory | filter:searchKey:'category'|slice:0:12">
                     <mat-card (click)="expand_data(item)" matRipple [matRippleCentered]="centered" class="m-5">
                         <img  [src]="item.image.img1" class="center" alt="" width="50%">
                         <div class="d-flex justify-content-between mt-4">
