@@ -1,4 +1,4 @@
-import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
+import { Component,OnInit } from '@angular/core';
 import { fakeapidata } from 'src/app/model/fake-api-data';
 
 @Component({
@@ -8,52 +8,73 @@ import { fakeapidata } from 'src/app/model/fake-api-data';
 })
 export class CartComponent implements OnInit {
 
-  n:any;
+  n:number=0;
   cartlist:any;
   price:number=0;
   standardprice:any;
   notify:any;
   totalamount:number=0;
   amount:number=0;
+  singleprice:number=0;
   constructor(private api:fakeapidata) { }
 
   ngOnInit(): void {
     this.cartlist=this.api.carttemp;
     
     for(let item of this.cartlist){
-      this.standardprice=item.price/item.addcount;
-      
-
-      this.totalamount=this.totalamount+item.price;
-      this.amount=this.totalamount;
+      this.totalamount=this.totalamount+item.price;       
     }
     this.notify=this.cartlist.length;    
+    this.amount=this.totalamount;
     
   }
 
   increament(item:any){
+    var id=item.id;
+
+    for(let list of this.cartlist){
+      if(list.id==id){
+        this.standardprice=list.price/list.addcount;
+        this.singleprice=list.price;        
+      } 
+    }
+
     if (this.n==0 || this.n < 1) {
       this.n = 1;
     } 
-    if(item.addcount<item.stock){
-      let total=item.price/item.addcount;
-    
+
+    this.n++;
+      let currunttotal=this.n*this.standardprice;
+      this.amount=this.amount-this.singleprice;
+      
+
+    if(item.addcount<item.stock){      
       item.addcount++;
-      this.amount=total*item.addcount;
-      item.price=this.amount;
-     this.amount=this.totalamount-this.amount;
-    console.log(this.amount);
+      item.price=this.standardprice*item.addcount;
+      this.amount=this.amount+currunttotal;
     }
     
   }
   decreament(item:any){
+    var id=item.id;
+
+    for(let list of this.cartlist){
+      if(list.id==id){
+        this.standardprice=list.price/list.addcount;
+        this.singleprice=list.price;        
+      } 
+    }
     if (this.n ==0 || this.n < 1) {
       this.n = 1;
     }
-    item.addcount--;
-    item.price=this.standardprice*item.addcount;
-    this.amount=item.price
-    console.log(this.amount);
+    this.n--;
+    let currunttotal=this.n*this.standardprice;
+    this.amount=this.amount-this.singleprice;
+
+      item.addcount--;
+    
+      item.price=this.standardprice*item.addcount;
+      this.amount=this.amount+currunttotal;
   }
 
   navbarCollapsed = true;
@@ -67,6 +88,6 @@ export class CartComponent implements OnInit {
   }
 
   checkout(){
-    alert('Total Amount:'+this.cartlist.price,)
+    alert('Total Amount:'+this.amount,)
   }
 }

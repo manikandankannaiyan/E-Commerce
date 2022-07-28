@@ -5,7 +5,7 @@
             <h1 class="pt-4"><b>Shop</b></h1>
         </div>
         <div class="col-md-6 pt-md-5">
-            <carousel class="mt-5" data-interval="false"  [showIndicators]="false" [itemsPerSlide]="4" [noWrap]="false" [singleSlideOffset]="true" [pauseOnFocus]="true">
+            <carousel class="mt-5" [interval]="0"  [showIndicators]="false" [itemsPerSlide]="4" [noWrap]="false" [singleSlideOffset]="true" [pauseOnFocus]="true">
                 <slide  *ngFor="let slide of image; let index=index">
                     <div class="d-flex flex-column align-items-center">
                         <img [src]="slide.img"  class="center_img" alt="image slide">
@@ -37,7 +37,7 @@
                 <img src="./assets/icons/downarrow.png" alt="">
             </div>
             <div [class.collapse]="navbarCollapsed2">
-                <mat-slider [max]="s_max" [min]="s_min" (change)="filter(value)" [(ngModel)]="value" style="width: 100%;"></mat-slider >
+                <mat-slider [max]="s_max" [min]="s_min" color="primary" (change)="filter(value)" [(ngModel)]="value" style="width: 100%;"></mat-slider >
                 <div class="d-flex align-items-center justify-content-between">
                     <div>Rs. {{s_min}}</div><div>Rs. {{value}}</div><div>Rs. {{s_max}}</div>
                 </div>
