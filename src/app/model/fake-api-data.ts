@@ -360,6 +360,7 @@ export class fakeapidata {
     if (i !== -1) {
       this.carttemp.splice(i,1);
     }
+    this.saveitem.next(this.carttemp);
   }
 
   getnotify(){

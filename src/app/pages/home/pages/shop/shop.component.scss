@@ -48,3 +48,8 @@ mat-card{
         height: 18rem;
     }
 }
+@media(max-width:768px){
+    ngx-slick-carousel{
+        display: none;
+    }
+}

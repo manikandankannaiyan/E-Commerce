@@ -35,7 +35,7 @@
                             <p><b>{{item.stock}}</b></p>
                             <p>In Stock</p>
                         </div>
-                        <img (click)="removeitem(item.id)" src="./assets/icons/delete.png" alt="">
+                        <img (click)="removeitem(item)"  src="./assets/icons/delete.png" alt="">
                     </div>
                     <div class="d-flex align-items-center" style=" border:solid 1px; width:fit-content;" >
                         <a style="color:black" (click)="decreament(item)" class="pl-1 pr-5"><b>-</b></a>
@@ -55,14 +55,14 @@
                 <div class="d-flex align-items-start justify-content-between">
                     <div>
                         <h3><b>Subtotal</b></h3>
-                        <h3>{{n}} Product</h3>
+                        <h3>{{total_pro}} Product</h3>
                     </div>
-                    <div><h3>Rs. {{amount}} </h3></div>
+                    <div><h3>Rs. {{totalamount}} </h3></div>
                 </div>
                 <hr>
                 <div class="d-flex align-items-start justify-content-between">
                     <div><h3><b>Total</b></h3></div>
-                    <div><h3>Rs. {{amount}} </h3></div>
+                    <div><h3>Rs. {{totalamount}} </h3></div>
                 </div>
                 <button (click)="checkout()" class="btn ml-auto">Checkout</button>
             </div>

@@ -8,73 +8,54 @@ import { fakeapidata } from 'src/app/model/fake-api-data';
 })
 export class CartComponent implements OnInit {
 
-  n:number=0;
+  total_pro:number=0;
   cartlist:any;
-  price:number=0;
   standardprice:any;
   notify:any;
   totalamount:number=0;
-  amount:number=0;
   singleprice:number=0;
+
+
   constructor(private api:fakeapidata) { }
 
   ngOnInit(): void {
     this.cartlist=this.api.carttemp;
     
     for(let item of this.cartlist){
-      this.totalamount=this.totalamount+item.price;       
+      this.totalamount=this.totalamount+item.price;  
+      this.total_pro=this.total_pro+item.addcount;
     }
     this.notify=this.cartlist.length;    
-    this.amount=this.totalamount;
-    
+      
   }
 
   increament(item:any){
     var id=item.id;
+    this.total_pro++;
 
     for(let list of this.cartlist){
       if(list.id==id){
         this.standardprice=list.price/list.addcount;
-        this.singleprice=list.price;        
-      } 
+      }
     }
-
-    if (this.n==0 || this.n < 1) {
-      this.n = 1;
-    } 
-
-    this.n++;
-      let currunttotal=this.n*this.standardprice;
-      this.amount=this.amount-this.singleprice;
-      
-
     if(item.addcount<item.stock){      
       item.addcount++;
       item.price=this.standardprice*item.addcount;
-      this.amount=this.amount+currunttotal;
+      this.totalamount=this.totalamount+this.standardprice;
     }
-    
   }
   decreament(item:any){
     var id=item.id;
+    this.total_pro--;
 
     for(let list of this.cartlist){
       if(list.id==id){
         this.standardprice=list.price/list.addcount;
-        this.singleprice=list.price;        
       } 
     }
-    if (this.n ==0 || this.n < 1) {
-      this.n = 1;
-    }
-    this.n--;
-    let currunttotal=this.n*this.standardprice;
-    this.amount=this.amount-this.singleprice;
-
       item.addcount--;
-    
       item.price=this.standardprice*item.addcount;
-      this.amount=this.amount+currunttotal;
+      this.totalamount=this.totalamount-this.standardprice;
   }
 
   navbarCollapsed = true;
@@ -83,11 +64,13 @@ export class CartComponent implements OnInit {
       this.navbarCollapsed = !this.navbarCollapsed;
   }
 
-  removeitem(item: any){
-    this.api.removeitemcart(item);
+  removeitem(item: any){    
+    this.api.removeitemcart(item.id);
+    this.totalamount=this.totalamount-item.price;
+    this.total_pro=this.total_pro-item.addcount;
   }
 
   checkout(){
-    alert('Total Amount:'+this.amount,)
+    alert('Total Amount:'+this.totalamount,)
   }
 }

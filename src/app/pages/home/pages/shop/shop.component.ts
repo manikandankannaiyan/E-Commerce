@@ -96,9 +96,4 @@ export class ShopComponent implements OnInit {
       this.navbarCollapsed4 = !this.navbarCollapsed4;
   }
 
-  
-  rangefilter(){
-   
-}
-
 }
