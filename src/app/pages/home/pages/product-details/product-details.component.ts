@@ -2,7 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
 import { fakeapidata } from 'src/app/model/fake-api-data';
 import { FakeApiService } from 'src/app/service/fake-api.service';
-import Swal from 'sweetalert2';
+import Swal from 'sweetalert2/dist/sweetalert2.js';
 
 @Component({
   selector: 'app-product-details',
@@ -19,6 +19,7 @@ export class ProductDetailsComponent implements OnInit {
   single:any;
   price:any;
   Size:any;
+  cartlist:any;
 
   constructor(private service:FakeApiService,private route:ActivatedRoute,private api:fakeapidata) { }
 
@@ -26,9 +27,8 @@ export class ProductDetailsComponent implements OnInit {
     this.route.queryParams.subscribe((data:any)=>{
       this.single_data=JSON.parse(data.data)
       this.single=JSON.parse(data.data)
-      
     })
-    
+    this.cartlist=this.api.carttemp;
     this.apidata=this.api.datalist;
     this.filterCategory=this.api.datalist;  
 
@@ -69,7 +69,7 @@ export class ProductDetailsComponent implements OnInit {
   }
   savecartlist(){
     this.single_data.price=this.price;
-    this.single_data.addcount=this.n;
+    this.single_data.addcount=this.n;    
     this.api.savecart(this.single_data);
   }
   imgchange(data:any){
@@ -86,15 +86,9 @@ export class ProductDetailsComponent implements OnInit {
   }
 
   alertcart(){
-    Swal.mixin({
-      toast: true,
-      position: 'top-end',
-    }).fire('Product Added In Cart')
+   
   }
   alertwish(){
-    Swal.mixin({
-      toast: true,
-      position: 'top-end',
-    }).fire('Product Added In Wishlist')
+    
   }
 }

@@ -1,5 +1,6 @@
 import { Injectable } from '@angular/core'
 import { BehaviorSubject } from 'rxjs';
+import Swal from 'sweetalert2';
 
 @Injectable()
 export class fakeapidata {
@@ -331,7 +332,16 @@ export class fakeapidata {
   } 
 
   savewish(data: any){
+    const found = this.wishtemp.find(
+      (      item: any) => JSON.stringify(item.id) === JSON.stringify(data.id)
+    );
+    if (!found) {
     this.wishtemp.push(data);
+    Swal.mixin({
+      toast: true,
+      position: 'top-end',
+    }).fire('Product Added In Wishlist')
+    }
     this.saveitemwish.next(this.wishtemp);
   }
 
@@ -339,14 +349,20 @@ export class fakeapidata {
     return this.wishtemp;
   }
 
-  
-  
   savecart(data:any){
-    this.carttemp.push(data);
+    const found = this.carttemp.find(
+      (      item: any) => JSON.stringify(item.id) === JSON.stringify(data.id)
+    );
+    if (!found) {
+      this.carttemp.push(data);
+      Swal.mixin({
+        toast: true,
+        position: 'top-end',
+      }).fire('Product Added In Cart')
+    }
     this.saveitem.next(this.carttemp);
     
   }
-
   servecart(){
     return this.carttemp;
   }

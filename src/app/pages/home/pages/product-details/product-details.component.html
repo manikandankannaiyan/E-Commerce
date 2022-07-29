@@ -3,10 +3,10 @@
         <div class="col-md-6 d-flex flex-column justify-content-center align-items-center pt-4">
             <img style="width: 15rem;height:15rem;" [src]="single_data.image.img1" alt="">
             <div class="sub_img d-flex align-items-center mt-3">
-                <img (click)="imgchange(single_data.image.img2)" style="width: 5rem;height:5rem; border: 1px solid;" class="m-1" [src]="single_data.image.img2" alt="">
-                <img (click)="imgchange(single_data.image.img3)" style="width: 5rem;height:5rem; border: 1px solid;" class="m-1" [src]="single_data.image.img3" alt="">
-                <img (click)="imgchange(single_data.image.img4)" style="width: 5rem;height:5rem; border: 1px solid;" class="m-1" [src]="single_data.image.img4" alt="">
-                <img (click)="imgchange(single_data.image.img5)" style="width: 5rem;height:5rem; border: 1px solid;" class="m-1" [src]="single_data.image.img5" alt="">
+                <img (click)="imgchange(single_data.image.img2)" style="width: 5rem;height:5rem; border: 1px solid; cursor: pointer;" class="m-1" [src]="single_data.image.img2" alt="">
+                <img (click)="imgchange(single_data.image.img3)" style="width: 5rem;height:5rem; border: 1px solid; cursor: pointer;" class="m-1" [src]="single_data.image.img3" alt="">
+                <img (click)="imgchange(single_data.image.img4)" style="width: 5rem;height:5rem; border: 1px solid; cursor: pointer;" class="m-1" [src]="single_data.image.img4" alt="">
+                <img (click)="imgchange(single_data.image.img5)" style="width: 5rem;height:5rem; border: 1px solid; cursor: pointer;" class="m-1" [src]="single_data.image.img5" alt="">
             </div>
         </div>
         <div class="col-md-6">
@@ -41,16 +41,16 @@
             <label><b>Size</b></label>
             <div class="d-flex">
                 <div class="mr-3">
-                    <h4 class="size"(click)="size('small')">S</h4>
+                    <h4 class="size" style="cursor: pointer;" (click)="size('small')">S</h4>
                 </div>
                 <div class="mr-3">
-                    <h4 class="size"(click)="size('medium')">M</h4>
+                    <h4 class="size" style="cursor: pointer;" (click)="size('medium')">M</h4>
                 </div>
                 <div class="mr-3">
-                    <h4 class="size"(click)="size('large')">L</h4>
+                    <h4 class="size" style="cursor: pointer;" (click)="size('large')">L</h4>
                 </div>
                 <div class="mr-3">
-                    <h4 class="size"(click)="size('extra-large')">XL</h4>
+                    <h4 class="size" style="cursor: pointer;" (click)="size('extra-large')">XL</h4>
                 </div>
             </div>
             <div>{{Size}}</div>
@@ -96,7 +96,7 @@
     <div class="d-flex align-items-center justify-content-center"><h2><b>Same Product</b></h2></div>
     <div class="row" >
         <div class="col-xs-6 col-sm-6 col-lg-4  d-flex justify-content-center" *ngFor="let item of filterCategory | filter:searchKey:'category'|slice:0:12">
-            <mat-card (click)="selectproduct(item)" matRipple [matRippleCentered]="centered" class="m-5">
+            <mat-card (click)="selectproduct(item)" style="cursor: pointer;" matRipple [matRippleCentered]="centered" class="m-5">
                 <img [src]="item.image.img1" class="center" alt="" width="50%">
                 <div class="d-flex justify-content-between mt-4">
                     <h3><b>{{item.category}}</b></h3>
