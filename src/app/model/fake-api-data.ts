@@ -5,6 +5,7 @@ import { BehaviorSubject } from 'rxjs';
 export class fakeapidata {
   public search = new BehaviorSubject<string>("");
   public saveitem = new BehaviorSubject<any>([]);
+  public saveitemwish = new BehaviorSubject<any>([]);
   public datalist: any = 
     [
       {
@@ -316,11 +317,12 @@ export class fakeapidata {
     ]
     
   public carttemp:any=[];
-  public wishtemp:any[]=[];
+  public wishtemp:any=[];
 
     setProduct(data : any){
       this.datalist.push(data);
       this.saveitem.next(data)
+      this.saveitemwish.next(data)
     }
   
 
@@ -330,6 +332,7 @@ export class fakeapidata {
 
   savewish(data: any){
     this.wishtemp.push(data);
+    this.saveitemwish.next(this.wishtemp);
   }
 
   servewish(){
@@ -354,6 +357,7 @@ export class fakeapidata {
     if (i !== -1) {
       this.wishtemp.splice(i,1);
     }
+    this.saveitemwish.next(this.wishtemp);
   }
   removeitemcart(data: any){
     const i = this.carttemp.findIndex((e: { id: any; }) => e.id === data);
@@ -365,5 +369,9 @@ export class fakeapidata {
 
   getnotify(){
     return this.saveitem.asObservable();
+  }
+
+  getnotifywish(){
+    return this.saveitemwish.asObservable();
   }
 }

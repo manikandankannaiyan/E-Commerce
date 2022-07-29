@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
 import { fakeapidata } from 'src/app/model/fake-api-data';
 import { FakeApiService } from 'src/app/service/fake-api.service';
+import Swal from 'sweetalert2';
 
 @Component({
   selector: 'app-product-details',
@@ -15,6 +16,7 @@ export class ProductDetailsComponent implements OnInit {
   centered = false;
   n:any;
   single_data:any;
+  single:any;
   price:any;
   Size:any;
 
@@ -23,6 +25,8 @@ export class ProductDetailsComponent implements OnInit {
   ngOnInit(): void {
     this.route.queryParams.subscribe((data:any)=>{
       this.single_data=JSON.parse(data.data)
+      this.single=JSON.parse(data.data)
+      
     })
     
     this.apidata=this.api.datalist;
@@ -79,5 +83,18 @@ export class ProductDetailsComponent implements OnInit {
   
   size(data:any){
     this.Size=data;
+  }
+
+  alertcart(){
+    Swal.mixin({
+      toast: true,
+      position: 'top-end',
+    }).fire('Product Added In Cart')
+  }
+  alertwish(){
+    Swal.mixin({
+      toast: true,
+      position: 'top-end',
+    }).fire('Product Added In Wishlist')
   }
 }

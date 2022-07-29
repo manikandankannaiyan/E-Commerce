@@ -25,6 +25,7 @@ export class ShopComponent implements OnInit {
   value=0;
   filterdata:any;
 
+  clicked=false;
   ngOnInit(): void {    
     this.apidata=this.api.datalist;
     this.filterCategory=this.api.datalist;
@@ -70,6 +71,7 @@ export class ShopComponent implements OnInit {
 
   toggleNavbarCollapsing() {
       this.navbarCollapsed = !this.navbarCollapsed;
+      this.clicked=true
   }
 
   navbarCollapsed1 = false;

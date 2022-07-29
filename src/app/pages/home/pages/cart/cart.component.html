@@ -7,8 +7,11 @@
         </div>
     </div>
 </div>
-<div class="m-5">
-    <h2><b>Cart Product</b></h2>
+<div class=" m-5 d-flex justify-content-center align-items-center" *ngIf="cartlist==0">
+    <h1 style="color: #969696;"><b>Cartlist Is Empty</b></h1>
+</div>
+<div class="m-5" *ngIf="cartlist!=0">
+    <h2 ><b>Cart Product</b></h2>
     <div class="row d-flex justify-content-start" >
         <div class="col-md-7" >
             <div class="row mt-3"*ngFor="let item of cartlist; let i=index" style="background-color: #F4F4F4;">
@@ -45,7 +48,7 @@
                 </div>
             </div>
         </div>
-        <div class="col-md-5 mt-3">
+        <div class="col-md-5 mt-3" >
             <div class="p-5" style="background-color: #F4F4F4;">
                 <h3><b>Coupon Code</b></h3>
                 <div class="d-flex flex-column align-items-start justify-content-between">
@@ -55,7 +58,7 @@
                 <div class="d-flex align-items-start justify-content-between">
                     <div>
                         <h3><b>Subtotal</b></h3>
-                        <h3>{{total_pro}} Product</h3>
+                        <h3>{{total_pro}} Quantity</h3>
                     </div>
                     <div><h3>Rs. {{totalamount}} </h3></div>
                 </div>

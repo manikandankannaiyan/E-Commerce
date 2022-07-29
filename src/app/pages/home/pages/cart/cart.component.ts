@@ -1,5 +1,6 @@
 import { Component,OnInit } from '@angular/core';
 import { fakeapidata } from 'src/app/model/fake-api-data';
+import Swal from 'sweetalert2';
 
 @Component({
   selector: 'app-cart',
@@ -14,6 +15,7 @@ export class CartComponent implements OnInit {
   notify:any;
   totalamount:number=0;
   singleprice:number=0;
+  mincount=1;
 
 
   constructor(private api:fakeapidata) { }
@@ -46,16 +48,20 @@ export class CartComponent implements OnInit {
   }
   decreament(item:any){
     var id=item.id;
-    this.total_pro--;
+    if (this.mincount<this.total_pro) {
+      this.total_pro--;
+    }
 
     for(let list of this.cartlist){
       if(list.id==id){
         this.standardprice=list.price/list.addcount;
       } 
     }
-      item.addcount--;
+      if(this.mincount<item.addcount){
+        item.addcount--;
       item.price=this.standardprice*item.addcount;
       this.totalamount=this.totalamount-this.standardprice;
+      }
   }
 
   navbarCollapsed = true;
@@ -71,6 +77,11 @@ export class CartComponent implements OnInit {
   }
 
   checkout(){
-    alert('Total Amount:'+this.totalamount,)
+    Swal.fire({
+      icon:'success',
+      position: 'center',
+      title:'Your payment successfull',
+      text:'Total Amount: '+this.totalamount+' Rs.',
+    })
   }
 }

@@ -3,7 +3,7 @@
         <div class="col-sm-4 pl-sm-5 d-flex flex-column justify-content-md-center">
             <h2>Get the Latest Dress Models From Us</h2>
             <h5>Lorem ipsum dolor sit amet, consectetur adipiscing elit. In eget gravida leo, nec iaculis diam. Nam bibendum mi sed sem finibus ullamcorper.</h5>
-            <button type="button" routerLink="/shop" class="btn bg-light w-50">Shop Now</button>
+            <button type="button" routerLink="/shop" style="cursor: pointer;" class="btn bg-light w-50">Shop Now</button>
         </div>
         <div class="col-md-4 d-flex flex-column justify-content-md-center">
            <div class="slide1 ">
@@ -75,8 +75,8 @@
     </div>
 
     <div class="row" >
-        <div class="col-xs-6 col-sm-6 col-lg-3 d-flex justify-content-center" *ngFor="let item of filterCategory | filter:searchKey:'category'|slice:0:8">
-            <mat-card matRipple [matRippleCentered]="centered" class="m-5" routerLink="shop">
+        <div class="col-xs-6 col-sm-6 col-lg-3 d-flex justify-content-center"  *ngFor="let item of filterCategory | filter:searchKey:'category'|slice:0:8">
+            <mat-card style="cursor: pointer;" (click)="expand_data(item)" matRipple [matRippleCentered]="centered" class="m-5" routerLink="shop">
                 <img [src]="item.image.img1" class="center" alt="" width="50%">
                 <div class="d-flex justify-content-between mt-4">
                     <h3><b>{{item.category}}</b></h3>

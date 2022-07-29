@@ -9,6 +9,7 @@ import { fakeapidata } from 'src/app/model/fake-api-data';
 export class NavbarComponent implements OnInit {
 
   cartitem:any;
+  wishitem:any;
   filterCategory:any;
   apidata:any
   public searchTerm !: string;
@@ -17,6 +18,9 @@ export class NavbarComponent implements OnInit {
   ngOnInit(): void {
     this.api.getnotify().subscribe((data:any)=>{
       this.cartitem=data.length;
+    }) 
+    this.api.getnotifywish().subscribe((data:any)=>{
+      this.wishitem=data.length;
     })    
   }
   navbarCollapsed = true;

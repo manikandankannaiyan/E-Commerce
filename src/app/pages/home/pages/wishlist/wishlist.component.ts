@@ -11,11 +11,11 @@ export class WishlistComponent implements OnInit {
   wishlist:any;
   price: any;
   n=1;
-  single_data: any;
   constructor(private api:fakeapidata) { }
 
   ngOnInit(): void {
     this.wishlist = this.api.servewish();    
+
   }
 
   savecartlist(data:any){

@@ -33,7 +33,7 @@
                 <div class="col-6">
                     <label><b>Stock</b></label>
                     <div class="d-flex align-items-center">
-                        <p class="pt-2 pr-1">({{single_data.rating.count}})</p>
+                        <p class="pt-2 pr-1">({{single_data.stock}})</p>
                         <img src="./assets/icons/buy.png" alt="">
                     </div>
                 </div>
@@ -64,12 +64,13 @@
                     </div>
                 </div>
                 <div class="col-6">
-                    <h2><b>Rs. {{price}}</b></h2>
+                    <h2><b>Rs. {{single.price}}</b></h2>
                 </div>
             </div>
             <div class="d-flex align-items-center pt-3">
-                <button (click)="savecartlist()" mat-raised-button style="background: linear-gradient(#7D89FF, #AB40FF); color: white;"><b>checkout</b></button>
-                <button (click)="savewishlist()" mat-raised-button style="background: linear-gradient(#7D89FF, #AB40FF);" class="ml-3"><img src="./assets/icons/cart.png" alt=""></button>
+                <button (click)="savecartlist()" routerLink="/cart" mat-raised-button style="background: linear-gradient(#7D89FF, #AB40FF); color: white;"><b>Checkout</b></button>
+                <button (click)="savecartlist()" (click)="alertcart()" mat-raised-button style="background: linear-gradient(#7D89FF, #AB40FF); color: white;" class="ml-3"><b>Add To Cart</b></button>
+                <button (click)="savewishlist()" (click)="alertwish()" mat-raised-button style="background: linear-gradient(#7D89FF, #AB40FF);" class="ml-3"><img src="./assets/icons/cart.png" alt=""></button>
             </div>
         </div>
     </div>

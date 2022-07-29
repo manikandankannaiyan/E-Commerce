@@ -11,7 +11,7 @@
           <a class="nav-link" routerLinkActive="active" routerLink="home" href="#">Home</a>
         </li>
         <li class="nav-item">
-          <a class="nav-link" routerLinkActive="active" routerLink="pro-shop" href="#">Shop</a>
+          <a class="nav-link" routerLinkActive="active" routerLink="shop" href="#">Shop</a>
         </li>
         <li class="nav-item">
           <a class="nav-link" routerLinkActive="active" routerLink="about" href="#">About Us</a>
@@ -22,7 +22,7 @@
       </ul>
       <div class=" icon my-2 my-lg-0 d-flex align-items-center">
         <div class="notify d-flex align-items-center" routerLink="cart"><img class="pr-3" src="./assets/icons/notify.png" alt=""><p class="rounded-circle">{{cartitem}}</p></div>
-        <img class="pr-3" src="./assets/icons/heart.png" routerLink="wishlist" alt="">
+        <div class="notify d-flex align-items-center" routerLink="wishlist"><img class="pr-3" src="./assets/icons/heart.png" alt=""><p class="rounded-circle">{{wishitem}}</p></div>
         <img class="pr-3 " src="./assets/icons/profile1.png" alt="">
     </div>
       <form class="form-group form-inline my-2 my-lg-0">

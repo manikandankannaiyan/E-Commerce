@@ -7,8 +7,11 @@
         </div>
     </div>
 </div>
-<div class=" m-5">
-    <div class=" row d-md-flex d align-items-center justify-content-between">
+<div class=" m-5 d-flex justify-content-center align-items-center" *ngIf="wishlist==0">
+    <h1 style="color: #969696;"><b>Wishlist Is Empty</b></h1>
+</div>
+<div class=" m-5" *ngIf="wishlist!=0">
+    <div class=" row d-md-flex d align-items-center justify-content-between" >
         <div class="col-sm-3  d-flex flex-column align-items-center">
             <h2><b>Product</b></h2>
         </div>

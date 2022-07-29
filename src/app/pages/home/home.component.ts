@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { Router } from '@angular/router';
 import { fakeapidata } from 'src/app/model/fake-api-data';
 import { FakeApiService } from 'src/app/service/fake-api.service';
 declare var $:any;
@@ -20,7 +21,7 @@ export class HomeComponent implements OnInit {
 
   filterCategory : any;
 
-  constructor( private service:FakeApiService, private api:fakeapidata) { }
+  constructor( private service:FakeApiService, private api:fakeapidata, private router:Router) { }
 
   ngOnInit(): void {    
     this.apidata=this.api.datalist;
@@ -63,5 +64,9 @@ export class HomeComponent implements OnInit {
     {name:'Jewelery',filter:'jewelery'},
     {name:'Electronics',filter:'electronics'}
   ]
+
+  expand_data(data:any){    
+    this.router.navigate(['product-details'],{queryParams:{data:JSON.stringify(data)}})    
+  }
   
 }
